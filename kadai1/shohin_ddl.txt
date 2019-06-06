@@ -1,0 +1,40 @@
+CREATE TABLE shohin (
+ shohinid varchar(8)  PRIMARY KEY,
+ teika int,
+ kakaku int,
+ shohinmei VARCHAR(64),
+ISBN VARCHAR(24)
+);
+
+INSERT INTO shohin VALUES(
+'sa000001',3000,3000,'コンピュータ入門','ISBN4-77412508-2');
+
+INSERT INTO shohin VALUES(
+'sa000002',1980,1980,'Java','ISBN4-12342208-2');
+
+INSERT INTO shohin VALUES(
+'sa000003',2000,2000,'プロ野球図鑑 ','ISBN4-36712087-3');
+
+INSERT INTO shohin VALUES(
+'sa000004',2800,2800,'本当本 ','ISBN4-36712087-3');
+
+INSERT INTO shohin VALUES(
+'sa000005',10000,10000,'黒いダイヤ！オオクワガタの神秘 ','ISBN5-44324352-0');
+
+
+INSERT INTO SHOHIN VALUES(
+'bis002','チョコレートパイ（アプリコット）','12個入り',300,'全国','春の新味登場！','bis002.jpg');
+
+INSERT INTO SHOHIN VALUES(
+'bis003','カスタードケーキ','8個入り',300,'全国','ふんわりとろける味！','bis003.jpg');
+
+INSERT INTO SHOHIN VALUES(
+'ice001','カップアイス','',130,'全国','つめた～いカップアイス！','ice001.jpg');
+
+INSERT INTO SHOHIN VALUES(
+'ice002','アイスバー','',60,'広島','カロリー抑えめ！冷たくておいしい！','ice002.jpg');
+
+GRANT ALL PRIVILEGES ON S2A1.* TO user@localhost IDENTIFIED BY 'password';
+
+show tables;
+
