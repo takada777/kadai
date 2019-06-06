@@ -43,7 +43,6 @@ public class Dao1 {
 
 		ResultSet rs=null;
 		this.open();
-		System.out.println("unti");
 		try {
 			statement =connection.prepareStatement("SELECT * FROM employee WHERE empid = ? AND emppasswd = ? AND emprole = 1");
 			statement.setString(1, empid);
