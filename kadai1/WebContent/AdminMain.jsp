@@ -20,7 +20,9 @@
 <input type="submit"  value="従業員パスワード">
 <br>
 <p></p>
+<form action="TabyouinRegister.jsp" method="post">
 <input type="submit" value="他病院登録">
+</form>
 <br>
 <p></p>
 <input type="submit"  value="他病院一覧">

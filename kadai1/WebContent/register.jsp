@@ -13,9 +13,9 @@
 </font>
 <p>従業員ID<br>
 <input type="text" name="empid"></p>
-<p>	従業員名<br>
+<p>	苗字<br>
 <input type="text" name="empfname"></p>
-<p>従業員姓<br>
+<p>氏名<br>
 <input type="text" name="emplname"></p>
 <p>従業員パスワード<br>
 <input type="text" name="emppasswd"></p>

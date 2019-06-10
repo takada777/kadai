@@ -198,20 +198,20 @@ public class Dao1 {
 			e.printStackTrace();
 		}
 	}
-	public void Deleteemp(String empid){
+	public void TabyouinRegister(String tabyouinid,String tabyouinmei,String tabyouinaddress,String tabyouintel,int tabyouinshihonkin,int kyukyu){
 
 		ResultSet rs=null;
 		this.open();
 		try {
-			statement =connection.prepareStatement("DELETE FROM employee WHERE empid=?;");
-			statement.setString(1, empid);
-			//statement.setString(2, empfname);
-			//statement.setString(3, emplname);
-			//statement.setString(4, emppasswd);
-			//statement.setString(5, emprole);
+			statement =connection.prepareStatement("insert into tabyouin (tabyouinid,tabyouinmei,tabyouinaddress,tabyouintel,tabyouinshihonkin,kyukyu) values(?,?,?,?,?,?);");
+			statement.setString(1, tabyouinid);
+			statement.setString(2, tabyouinmei);
+			statement.setString(3, tabyouinaddress);
+			statement.setString(4,tabyouintel);
+			statement.setInt(5, tabyouinshihonkin);
+			statement.setInt(6, kyukyu);
 			int num=statement.executeUpdate();
 			System.out.println(num);
-			System.out.println(empid);
 			rs=statement.executeQuery();
 
 					while(rs.next()){
@@ -229,5 +229,6 @@ public class Dao1 {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
-	}
+
+}
 }
