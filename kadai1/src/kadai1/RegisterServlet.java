@@ -9,8 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.Dao1;
-
 /**
  * Servlet implementation class RegisterServlet
  */
@@ -36,25 +34,29 @@ public class RegisterServlet extends HttpServlet {
 			String empfname=request.getParameter("empfname");
 			String emplname=request.getParameter("emplname");
 			String emppasswd=request.getParameter("emppasswd");
-			int emprole=Integer.parseInt(request.getParameter("emprole"));
+			String emprole=request.getParameter("yakuwari");
+			//String action=request.getParameter("action");
+			//int emprole=Integer.parseInt(request.getParameter("emprole"));
+			ToSHA2 sha2=new ToSHA2();
+			sha2.getDigest(emppasswd);
 
 
-			Dao1 dao=new Dao1();
-			//EmpBean eBean;
-			dao.Register(empid, empfname, emplname, emppasswd, emprole);
+
 			HttpSession session=request.getSession();
 			session.setAttribute("empid", empid);
 			session.setAttribute("empfname", empfname);
 			session.setAttribute("emplname", emplname);
 			session.setAttribute("emppasswd", emppasswd);
-			EmpBean eBean=new EmpBean();
+			session.setAttribute("emprole", emprole);
+			//EmpBean eBean=new EmpBean();
 			//session.setAttribute("eBean", eBean);
 			//System.out.print(eBean.emppasswd);
 
-
 			getServletContext().getRequestDispatcher("/confirm.jsp").forward(request, response);
-			dao.close();
-	}
+
+			}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

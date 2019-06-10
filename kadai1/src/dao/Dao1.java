@@ -99,7 +99,7 @@ public class Dao1 {
 		}
 		return false;
 }
-	public void Register(String empid,String empfname,String emplname,String emppasswd,int emprole){
+	public void Register(String empid,String empfname,String emplname,String emppasswd,String emprole){
 
 		ResultSet rs=null;
 		this.open();
@@ -109,7 +109,7 @@ public class Dao1 {
 			statement.setString(2, empfname);
 			statement.setString(3, emplname);
 			statement.setString(4, emppasswd);
-			statement.setInt(5, emprole);
+			statement.setString(5, emprole);
 			int num=statement.executeUpdate();
 			System.out.println(num);
 			rs=statement.executeQuery();
@@ -180,6 +180,38 @@ public class Dao1 {
 
 			int num=statement.executeUpdate();
 			System.out.println(num);
+			rs=statement.executeQuery();
+
+					while(rs.next()){
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+	}
+	public void Deleteemp(String empid){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("DELETE FROM employee WHERE empid=?;");
+			statement.setString(1, empid);
+			//statement.setString(2, empfname);
+			//statement.setString(3, emplname);
+			//statement.setString(4, emppasswd);
+			//statement.setString(5, emprole);
+			int num=statement.executeUpdate();
+			System.out.println(num);
+			System.out.println(empid);
 			rs=statement.executeQuery();
 
 					while(rs.next()){

@@ -38,7 +38,7 @@ public class EmpLoginServlet extends HttpServlet {
 		Dao1 dao=new Dao1();
 		if (dao.Emplogin(empid, emppasswd)) {
 			ToSHA2 sha2=new ToSHA2();
-			 System.out.println(sha2.getDigest(emppasswd));
+			sha2.getDigest(emppasswd);
 
 
 
