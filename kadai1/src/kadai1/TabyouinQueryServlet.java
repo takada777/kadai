@@ -9,17 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Dao1;
+
 /**
- * Servlet implementation class TabyouinRegisterServlet
+ * Servlet implementation class TabyouinQueryServlet
  */
-@WebServlet("/TabyouinRegisterServlet")
-public class TabyouinRegisterServlet extends HttpServlet {
+@WebServlet("/TabyouinQueryServlet")
+public class TabyouinQueryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public TabyouinRegisterServlet() {
+    public TabyouinQueryServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,29 +32,16 @@ public class TabyouinRegisterServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String tabyouinid=request.getParameter("tabyouinid");
-		String tabyouinmei=request.getParameter("tabyouinmei");
 		String tabyouinaddress=request.getParameter("tabyouinaddress");
-		String tabyouintel=request.getParameter("tabyouintel");
-		String tabyouinshihonkin=request.getParameter("tabyouinshihonkin");
-		String kyukyu=request.getParameter("kyukyu");
-
-
-
-
+		Dao1 dao1=new Dao1();
+		TabyouinArrayBean TABean=dao1.serchtabyouin(tabyouinaddress);
 		HttpSession session=request.getSession();
-		session.setAttribute("tabyouinid", tabyouinid);
-		session.setAttribute("tabyouinmei", tabyouinmei);
+		session. setAttribute("TABean", TABean);
 		session.setAttribute("tabyouinaddress", tabyouinaddress);
-		session.setAttribute("tabyouintel", tabyouintel);
-		session.setAttribute("tabyouinshihonkin",tabyouinshihonkin);
-		session.setAttribute("kyukyu", kyukyu);
-
-
-		getServletContext().getRequestDispatcher("/Tabyouinconfirm.jsp").forward(request, response);
-
-		}
-
+		getServletContext().getRequestDispatcher("/shohin_retrieval.jsp").forward(request, response);
+		
+		dao1.close();
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

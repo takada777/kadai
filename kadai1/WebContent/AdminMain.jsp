@@ -28,7 +28,9 @@
 <input type="submit"  value="他病院一覧">
 <br>
 <p></p>
+<form action="SerchTabyouin.jsp" method="post">
 <input type="submit" value="病院検索">
+</form>
 <br>
 <p></p>
 <input type="submit"  value="他病院情報表示">

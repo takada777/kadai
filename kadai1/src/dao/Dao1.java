@@ -7,7 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import kadai1.EmpBean;
+import kadai1.TabyouinArrayBean;
+import kadai1.TabyouinBean;
 import kadai1.employeeParameter;
+import kadai1.tabyouinPara;
 
 
 
@@ -198,7 +201,7 @@ public class Dao1 {
 			e.printStackTrace();
 		}
 	}
-	public void TabyouinRegister(String tabyouinid,String tabyouinmei,String tabyouinaddress,String tabyouintel,int tabyouinshihonkin,int kyukyu){
+	public void TabyouinRegister(String tabyouinid,String tabyouinmei,String tabyouinaddress,String tabyouintel,String tabyouinshihonkin,String kyukyu){
 
 		ResultSet rs=null;
 		this.open();
@@ -208,8 +211,8 @@ public class Dao1 {
 			statement.setString(2, tabyouinmei);
 			statement.setString(3, tabyouinaddress);
 			statement.setString(4,tabyouintel);
-			statement.setInt(5, tabyouinshihonkin);
-			statement.setInt(6, kyukyu);
+			statement.setString(5, tabyouinshihonkin);
+			statement.setString(6, kyukyu);
 			int num=statement.executeUpdate();
 			System.out.println(num);
 			rs=statement.executeQuery();
@@ -231,4 +234,33 @@ public class Dao1 {
 		}
 
 }
+	public TabyouinArrayBean serchtabyouin(String tabyouinaddress){
+		TabyouinArrayBean TABean=new TabyouinArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM tabyouin WHERE tabyouinaddress LIKE ?");
+			statement.setString(1, "%"+tabyouinaddress+"%");
+			rs=statement.executeQuery();
+			while(rs.next()){
+				TabyouinBean TBean=new TabyouinBean();
+				TBean.setTabyouinid(tabyouinPara.tabyouinid);
+				TBean.setTabyouinmei(tabyouinPara.tabyouinmei);
+				TBean.setTabyouinaddress(tabyouinPara.tabyouinaddress);
+				TBean.setTabyouintel(tabyouinPara.tabyouintel);
+				TBean.setTabyouinshihonkin(tabyouinPara.tabyouinshihonkin);
+				TBean.setKyukyu(tabyouinPara.kyukyu);
+				TABean.addTabyouinArray(TBean);
+				System.out.println(tabyouinaddress);
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return TABean;
+
+
+	}
 }

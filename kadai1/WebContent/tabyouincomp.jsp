@@ -14,9 +14,8 @@ String tabyouinid=(String)session.getAttribute("tabyouinid");
 String tabyouinmei=(String)session.getAttribute("tabyouinmei");
 String tabyouinaddress=(String)session.getAttribute("tabyouinaddress");
 String tabyouintel=(String)session.getAttribute("tabyouintel");
-//String emprole=(String)session.getAttribute("emprole");
-int tabyouinshihonkin=1;
-int kyukyu=1;
+String tabyouinshihonkin=(String)session.getAttribute("tabyouinshihonkin");
+String kyukyu=(String)session.getAttribute("kyukyu");
 
 
 

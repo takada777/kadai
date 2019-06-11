@@ -10,8 +10,8 @@ String tabyouinid=(String)session.getAttribute("tabyouinid");
 String tabyouinmei=(String)session.getAttribute("tabyouinmei");
 String tabyouinaddress=(String)session.getAttribute("tabyouinaddress");
 String tabyouintel=(String)session.getAttribute("tabyouintel");
-//String tabyouinshihonkin=(String)session.getAttribute("tabyouinshihonkin");
-//String kyukyu=(String)session.getAttribute("kyukyu");
+String tabyouinshihonkin=(String)session.getAttribute("tabyouinshihonkin");
+String kyukyu=(String)session.getAttribute("kyukyu");
 
 
 
@@ -32,9 +32,9 @@ String tabyouintel=(String)session.getAttribute("tabyouintel");
 <p>電話番号</p>
 <%=tabyouintel %>
 <p>資本金</p>
-
+<%=tabyouinshihonkin %>
 <p>救急</p>
-
+<%=kyukyu %>
 <form action="tabyouincomp.jsp" method="post">
 <input type="submit" value="登録する" name="action">
 
