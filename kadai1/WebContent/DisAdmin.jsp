@@ -14,7 +14,7 @@ HttpSession httpSession=request.getSession();
 
 %>
 <body>
-<form action="UpdatePassServlet" method="post">
+<form action="UPdatePassServlet" method="post">
 <jsp:useBean id="EABean" class="kadai1.EmpArrayBean" scope="session"/>
 
 <table border="1">

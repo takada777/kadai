@@ -7,6 +7,8 @@
 <title>パスワード変更</title>
 </head>
 <body>
-<% %>
+<%
+
+ String empid = request.getParameter("empid");%>
 </body>
 </html>

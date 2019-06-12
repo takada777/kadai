@@ -10,11 +10,11 @@
 
 </head>
 <body>
-
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <% String newemppasswd = request.getParameter("newemppasswd");
  String emppasswd = request.getParameter("emppasswd");
 
-EmpBean eBean=new EmpBean();
+
 %>
 
  <TABLE >
@@ -32,7 +32,7 @@ EmpBean eBean=new EmpBean();
 
 <TABLE>
 <TR>
-<TD ALIGN="LEFT"><%=eBean.getEmppasswd()%>
+<TD ALIGN="LEFT"><%=emppasswd%>
 <TD ALIGN="CENTER">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
 <TD ALIGN="RIGHT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=newemppasswd %>
 </TABLE>

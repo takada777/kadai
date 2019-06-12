@@ -283,7 +283,7 @@ public class Dao1 {
 				eBean.setEmppasswd(rs.getString(employeeParameter.emppasswd));
 				eBean.setEmprole(rs.getInt(employeeParameter.emprole));
 				EABean.addEmpArray(eBean);
-				
+
 			}
 
 
@@ -294,5 +294,33 @@ public class Dao1 {
 		return EABean;
 
 
+	}
+	public EmpBean serchinfo(String empid){
+
+		ResultSet rs=null;
+		EmpBean eBean = null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM employee WHERE empid = ?");
+			statement.setString(1, empid);
+			rs=statement.executeQuery();
+
+					if(rs.next()){
+						eBean=new EmpBean();
+						eBean.setEmpid(empid);
+				        eBean.setEmppasswd(rs.getString(employeeParameter.emppasswd));
+
+
+
+					}else{
+						throw new SQLException("商品コードが見つかりません");
+					}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return eBean;
 	}
 }

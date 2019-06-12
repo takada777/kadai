@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.Dao1;
+
 /**
  * Servlet implementation class UPdatePassServlet
  */
@@ -31,12 +33,14 @@ public class UPdatePassServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String empid=request.getParameter("empid");
-		shohindao dao=new shohindao();
-		ShohinBean sb=dao.serchinfo(code);
+		System.out.println(empid);
+		Dao1 dao=new Dao1();
+		EmpBean eBean=dao.serchinfo(empid);
 		HttpSession httpSession=request.getSession();
-		httpSession. setAttribute("sb", sb);
+		httpSession. setAttribute("eBean", eBean);
+		httpSession. setAttribute("empid", empid);
 
-		getServletContext().getRequestDispatcher("/shohin_detail.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/UpdatePass.jsp").forward(request, response);
 
 	}
 

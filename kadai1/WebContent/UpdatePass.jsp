@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="kadai1.*"%>
+    <%@page import="dao.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,19 +9,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <form action="ChangeAdminPass.jsp" method="post">
-<% String emppasswd= request.getParameter("emppasswd");
+<%
  %>
 <p>変更後のパスワードを入力してください</p>
 パスワード
 <br>
-<input type="text" name="newemppass" size="20">
+<input type="text" name="newemppasswd" size="20">
 
 
 <br>
 <input type="submit" value="送信">
 
-<input type="hidden" name="emppasswd" value="<%=emppasswd%>">
+<input type="hidden" name="emppasswd" value="<%=eBean.getEmppasswd()%>">
 </form>
 <form action="DisAdmin.jsp" method="post">
 <input type="submit" value="戻る">
