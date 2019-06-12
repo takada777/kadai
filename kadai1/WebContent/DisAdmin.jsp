@@ -10,7 +10,7 @@
 </head>
 <%
 HttpSession httpSession=request.getSession();
-
+int i=0;
 
 %>
 <body>
@@ -28,7 +28,9 @@ for(EmpBean eBean : EA){
     <td><%= eBean.getEmplname() %></td>
     <td><%= eBean.getEmpfname()%></td>
     <td><%= eBean.getEmppasswd() %></td>
-    <td><input type="hidden" name="empid" value="<%= eBean.getEmpid()%>"><input type="submit" value="編集"></td>
+
+    <td><input type="submit" value="編集"><input type="hidden" name="empid" value="<%=eBean.getEmpid() %>"></td>
+
 
 
 
@@ -40,6 +42,7 @@ for(EmpBean eBean : EA){
   </tr>
 
 <%
+
   }
 %>
 
