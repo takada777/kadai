@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import kadai1.EmpArrayBean;
 import kadai1.EmpBean;
 import kadai1.TabyouinArrayBean;
 import kadai1.TabyouinBean;
@@ -18,6 +19,9 @@ public class Dao1 {
 	private Connection connection;
 	private PreparedStatement statement = null;
 	EmpBean eBean=null;
+	TabyouinBean TBean=null;
+
+
 
 
 	public void open() {
@@ -243,15 +247,15 @@ public class Dao1 {
 			statement.setString(1, "%"+tabyouinaddress+"%");
 			rs=statement.executeQuery();
 			while(rs.next()){
-				TabyouinBean TBean=new TabyouinBean();
-				TBean.setTabyouinid(tabyouinPara.tabyouinid);
-				TBean.setTabyouinmei(tabyouinPara.tabyouinmei);
-				TBean.setTabyouinaddress(tabyouinPara.tabyouinaddress);
-				TBean.setTabyouintel(tabyouinPara.tabyouintel);
-				TBean.setTabyouinshihonkin(tabyouinPara.tabyouinshihonkin);
-				TBean.setKyukyu(tabyouinPara.kyukyu);
+				TBean=new TabyouinBean();
+				TBean.setTabyouinid(rs.getString(tabyouinPara.tabyouinid));
+				TBean.setTabyouinmei(rs.getString(tabyouinPara.tabyouinmei));
+				TBean.setTabyouinaddress(tabyouinaddress);
+				TBean.setTabyouintel(rs.getString(tabyouinPara.tabyouintel));
+				TBean.setTabyouinshihonkin(rs.getInt(tabyouinPara.tabyouinshihonkin));
+				TBean.setKyukyu(rs.getInt(tabyouinPara.kyukyu));
 				TABean.addTabyouinArray(TBean);
-				System.out.println(tabyouinaddress);
+
 			}
 
 
@@ -260,6 +264,34 @@ public class Dao1 {
 			e.printStackTrace();
 		}
 		return TABean;
+
+
+	}
+	public EmpArrayBean outputEmp(){
+		EmpArrayBean EABean=new EmpArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM employee WHERE emprole='1'");
+
+			rs=statement.executeQuery();
+			while(rs.next()){
+				eBean=new EmpBean();
+				eBean.setEmpid(rs.getString(employeeParameter.empid));
+				eBean.setEmplname(rs.getString(employeeParameter.emplname));
+				eBean.setEmpfname(rs.getString(employeeParameter.empfname));
+				eBean.setEmppasswd(rs.getString(employeeParameter.emppasswd));
+				eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+				EABean.addEmpArray(eBean);
+				
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return EABean;
 
 
 	}

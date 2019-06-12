@@ -7,8 +7,8 @@ public class TabyouinBean implements Serializable {
 	String tabyouinmei;
 	String tabyouinaddress;
 	String tabyouintel;
-	int tabyouinshihonkin;
-	int kyukyu;
+	   int tabyouinshihonkin;
+	   int kyukyu;
 	public String getTabyouinid() {
 		return tabyouinid;
 	}

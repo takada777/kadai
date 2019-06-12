@@ -17,7 +17,9 @@
 </form>
 <br>
 <p></p>
-<input type="submit"  value="従業員パスワード">
+<form action="AdminOutput" method="post">
+<input type="submit"  value="管理者一覧">
+</form>
 <br>
 <p></p>
 <form action="TabyouinRegister.jsp" method="post">
