@@ -323,4 +323,36 @@ public class Dao1 {
 		}
 		return eBean;
 	}
+	public void UpdatePass(String emppasswd,String empid){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("UPDATE employee set emppasswd = ? where empid = ?");
+			statement.setString(1,emppasswd);
+			
+			statement.setString(2,empid);
+
+
+			int num=statement.executeUpdate();
+			System.out.println(num);
+			rs=statement.executeQuery();
+
+					while(rs.next()){
+
+
+						}
+
+
+
+
+		
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+	}
 }
