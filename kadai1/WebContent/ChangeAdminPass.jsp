@@ -13,7 +13,7 @@
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <% String newemppasswd = request.getParameter("newemppasswd");
  String emppasswd = request.getParameter("emppasswd");
-
+ System.out.println(newemppasswd);
 
 %>
 
@@ -38,11 +38,12 @@
 </TABLE>
 
 
-
 <form action="Updateconfirm.jsp" method="post">
 <input type="submit" value="戻る">
 </form>
-<form action="UpdateServlet" method="post">
+<form action="UpdatePassServlet2" method="post">
+<input type="hidden" name="newemppasswd" value="<%= newemppasswd%>">
+<input type="hidden" name="empid" value="<%= eBean.getEmpid()%>">
 <input type="submit" value="送信">
 </form>
 </body>

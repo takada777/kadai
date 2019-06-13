@@ -7,21 +7,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.Dao1;
 
 /**
- * Servlet implementation class UPdatePassServlet
+ * Servlet implementation class UpdatePassServlet2
  */
-@WebServlet("/UPdatePassServlet")
-public class UPdatePassServlet extends HttpServlet {
+@WebServlet("/UpdatePassServlet2")
+public class UpdatePassServlet2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public UPdatePassServlet() {
+    public UpdatePassServlet2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,17 +31,17 @@ public class UPdatePassServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String empid=request.getParameter("empid");
+		// TODO Auto-generated method stub
+				 String emppasswd = request.getParameter("newemppasswd");
+				 
 
-		Dao1 dao=new Dao1();
-		EmpBean eBean=dao.serchinfo(empid);
-		HttpSession httpSession=request.getSession();
-		httpSession. setAttribute("eBean", eBean);
-		httpSession. setAttribute("empid", empid);
+				String empid = request.getParameter("empid");
+				Dao1 dao=new Dao1();
+				dao.UpdatePass(emppasswd, empid);
 
-		getServletContext().getRequestDispatcher("/UpdatePass.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/test4.jsp").forward(request, response);
+				dao.close();}
 
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

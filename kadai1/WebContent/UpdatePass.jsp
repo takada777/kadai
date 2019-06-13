@@ -23,6 +23,7 @@
 <input type="submit" value="送信">
 
 <input type="hidden" name="emppasswd" value="<%=eBean.getEmppasswd()%>">
+<input type="hidden" name="empid" value="<%=eBean.getEmpid()%>">
 </form>
 <form action="DisAdmin.jsp" method="post">
 <input type="submit" value="戻る">
