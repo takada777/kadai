@@ -86,7 +86,7 @@ public class Dao1 {
 			statement.setString(2, emppasswd);
 
 			rs=statement.executeQuery();
-
+			//eBean.setEmprole(rs.getInt(employeeParameter.emprole));
 					if(rs.next()){
 						return true;
 					}else {
@@ -330,7 +330,7 @@ public class Dao1 {
 		try {
 			statement =connection.prepareStatement("UPDATE employee set emppasswd = ? where empid = ?");
 			statement.setString(1,emppasswd);
-			
+
 			statement.setString(2,empid);
 
 
@@ -346,7 +346,7 @@ public class Dao1 {
 
 
 
-		
+
 
 
 

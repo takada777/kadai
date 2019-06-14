@@ -14,7 +14,6 @@ int i=0;
 
 %>
 <body>
-<form action="UPdatePassServlet" method="post">
 <jsp:useBean id="EABean" class="kadai1.EmpArrayBean" scope="session"/>
 
 <table border="1">
@@ -23,15 +22,18 @@ int i=0;
 ArrayList<EmpBean> EA=EABean.getEmpArray();
 for(EmpBean eBean : EA){
 	%>
+
  <tr>
     <td><%= eBean.getEmpid() %></td>
     <td><%= eBean.getEmplname() %></td>
     <td><%= eBean.getEmpfname()%></td>
     <td><%= eBean.getEmppasswd() %></td>
+  <form action="UPdatePassServlet" method="post">
+    <td><input type="submit" value="編集">
 
-    <td><input type="submit" value="編集"><input type="hidden" name="empid" value="<%=eBean.getEmpid() %>"></td>
-
-
+    	<input type="hidden" name="empid" value="<%=eBean.getEmpid() %>">
+    </td>
+  </form>
 
 
 
@@ -41,6 +43,7 @@ for(EmpBean eBean : EA){
 
   </tr>
 
+
 <%
 
   }
@@ -49,6 +52,6 @@ for(EmpBean eBean : EA){
 </table>
 
 
-</form>
+
 </body>
 </html>

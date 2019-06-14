@@ -32,11 +32,14 @@ public class EmpLoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		EmpBean eBean=new EmpBean();
 		String empid=request.getParameter("empid");
 		String emppasswd=request.getParameter("emppasswd");
 		Dao1 dao=new Dao1();
 		if (dao.Emplogin(empid, emppasswd)) {
+
+			eBean.getEmprole();
+			System.out.println(eBean.emprole);
 			ToSHA2 sha2=new ToSHA2();
 			sha2.getDigest(emppasswd);
 

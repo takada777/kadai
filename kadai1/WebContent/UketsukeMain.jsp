@@ -8,7 +8,7 @@
 </head>
 <body>
 <br>
-<form action="register.jsp" method="post">
+<form action="ChangeEmpPass.jsp" method="post">
 <input type="submit"  value="パスワード変更">
 </form>
 <br>
