@@ -12,16 +12,16 @@ import javax.servlet.http.HttpSession;
 import dao.Dao1;
 
 /**
- * Servlet implementation class EmpLoginServlet
+ * Servlet implementation class ChangeEmpPass
  */
-@WebServlet("/EmpLoginServlet")
-public class EmpLoginServlet extends HttpServlet {
+@WebServlet("/ChangeEmpPass")
+public class ChangeEmpPass extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmpLoginServlet() {
+    public ChangeEmpPass() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,30 +32,14 @@ public class EmpLoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmpBean eBean=new EmpBean();
 		String empid=request.getParameter("empid");
-		String emppasswd=request.getParameter("emppasswd");
-		Dao1 dao=new Dao1();
-		if (dao.Emplogin(empid, emppasswd)) {
+		Dao1 dao1=new Dao1();
+		EmpBean eBean= dao1.SerchEmp(empid);
+		HttpSession httpSession=request.getSession();
+		httpSession. setAttribute("eBean", eBean);
+		httpSession. setAttribute("empid", empid);
 
-			eBean.getEmprole();
-
-			ToSHA2 sha2=new ToSHA2();
-			sha2.getDigest(emppasswd);
-
-
-
-			HttpSession session=request.getSession();
-		session.setAttribute("empid", empid);
-
-		session.setAttribute("emppasswd", emppasswd);
-
-		getServletContext().getRequestDispatcher("/UketsukeMain.jsp").forward(request, response);
-		dao.close();}
-		else{
-			getServletContext().getRequestDispatcher("/EmpFailed.jsp").forward(request, response);
-			dao.close();
-		}
+		getServletContext().getRequestDispatcher("/ChangeEmpPass.jsp").forward(request, response);
 	}
 
 	/**

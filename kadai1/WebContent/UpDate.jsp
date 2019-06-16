@@ -10,14 +10,24 @@
 <body>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <form action="Updateconfirm.jsp" method="post">
+
 <table border="1">
-<tr><th>従業員ID</th><th>苗字</th><th>名前</th><th>パスワード</th><th>役割(1:管理者 2:受付 3:医師)</th><th></th></tr>
+<tr><th>従業員ID</th><th>苗字</th><th>名前</th><th>パスワード</th><th>役割</th><th></th></tr>
 <tr>
 <td><%=eBean.getEmpid() %></td>
 <td><%=eBean.getEmplname() %></td>
 <td><%=eBean.getEmpfname() %></td>
 <td><%=eBean.getEmppasswd() %></td>
-<td><%=eBean.getEmprole() %></td>
+<td><% if (eBean.getEmprole()==1){
+	%>
+	<p>管理者</p>
+	<%
+	}else if (eBean.getEmprole()==2){
+		%>
+		<p>受付</p>
+		<% }else if (eBean.getEmprole()==3){ %>
+			<p>医師</p>
+			<% }%></td>
 
 <td><input type="submit" value="編集"></td>
 </tr>

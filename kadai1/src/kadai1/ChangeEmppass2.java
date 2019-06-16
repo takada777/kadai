@@ -7,21 +7,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import dao.Dao1;
 
 /**
- * Servlet implementation class EmpLoginServlet
+ * Servlet implementation class ChangeEmppass2
  */
-@WebServlet("/EmpLoginServlet")
-public class EmpLoginServlet extends HttpServlet {
+@WebServlet("/ChangeEmppass2")
+public class ChangeEmppass2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmpLoginServlet() {
+    public ChangeEmppass2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,31 +31,16 @@ public class EmpLoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmpBean eBean=new EmpBean();
-		String empid=request.getParameter("empid");
-		String emppasswd=request.getParameter("emppasswd");
-		Dao1 dao=new Dao1();
-		if (dao.Emplogin(empid, emppasswd)) {
-
-			eBean.getEmprole();
-
-			ToSHA2 sha2=new ToSHA2();
-			sha2.getDigest(emppasswd);
+		 String emppasswd = request.getParameter("newemppasswd");
 
 
+			String empid = request.getParameter("empid");
+			Dao1 dao=new Dao1();
+			dao.UpdatePass(emppasswd, empid);
 
-			HttpSession session=request.getSession();
-		session.setAttribute("empid", empid);
+			getServletContext().getRequestDispatcher("/test5.jsp").forward(request, response);
+			dao.close();}
 
-		session.setAttribute("emppasswd", emppasswd);
-
-		getServletContext().getRequestDispatcher("/UketsukeMain.jsp").forward(request, response);
-		dao.close();}
-		else{
-			getServletContext().getRequestDispatcher("/EmpFailed.jsp").forward(request, response);
-			dao.close();
-		}
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

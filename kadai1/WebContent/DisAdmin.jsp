@@ -10,7 +10,7 @@
 </head>
 <%
 HttpSession httpSession=request.getSession();
-int i=0;
+
 
 %>
 <body>
@@ -50,8 +50,8 @@ for(EmpBean eBean : EA){
 %>
 
 </table>
-
-
-
+<form action="AdminMain.jsp" method="post">
+<input type="submit" value="メニューに戻る">
+</form>
 </body>
 </html>

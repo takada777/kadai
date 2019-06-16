@@ -13,7 +13,7 @@
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <% String newemppasswd = request.getParameter("newemppasswd");
  String emppasswd = request.getParameter("emppasswd");
- System.out.println(newemppasswd);
+ //System.out.println(eBean.getBeforepass());
 
 %>
 
@@ -38,7 +38,7 @@
 </TABLE>
 
 
-<form action="Updateconfirm.jsp" method="post">
+<form action="DisAdmin.jsp" method="post">
 <input type="submit" value="戻る">
 </form>
 <form action="UpdatePassServlet2" method="post">

@@ -10,6 +10,7 @@ import kadai1.EmpArrayBean;
 import kadai1.EmpBean;
 import kadai1.TabyouinArrayBean;
 import kadai1.TabyouinBean;
+import kadai1.ToSHA2;
 import kadai1.employeeParameter;
 import kadai1.tabyouinPara;
 
@@ -107,7 +108,7 @@ public class Dao1 {
 		return false;
 }
 	public void Register(String empid,String empfname,String emplname,String emppasswd,String emprole){
-
+		String beforepass;
 		ResultSet rs=null;
 		this.open();
 		try {
@@ -115,6 +116,9 @@ public class Dao1 {
 			statement.setString(1, empid);
 			statement.setString(2, empfname);
 			statement.setString(3, emplname);
+
+			ToSHA2 sha2=new ToSHA2();
+			emppasswd=sha2.getDigest(emppasswd);
 			statement.setString(4, emppasswd);
 			statement.setString(5, emprole);
 			int num=statement.executeUpdate();
@@ -122,7 +126,9 @@ public class Dao1 {
 			rs=statement.executeQuery();
 
 					while(rs.next()){
-
+						beforepass=emppasswd;
+						eBean=new EmpBean();
+						eBean.setEmppasswd(beforepass);
 
 						}
 
@@ -155,6 +161,7 @@ public class Dao1 {
 						eBean.setEmpfname(rs.getString(employeeParameter.empfname));
 						eBean.setEmplname(rs.getString(employeeParameter.emplname));
 						eBean.setEmppasswd(rs.getString(employeeParameter.emppasswd));
+						eBean.setEmprole(rs.getInt(employeeParameter.emprole));
 
 					}
 
@@ -213,6 +220,8 @@ public class Dao1 {
 			statement =connection.prepareStatement("insert into tabyouin (tabyouinid,tabyouinmei,tabyouinaddress,tabyouintel,tabyouinshihonkin,kyukyu) values(?,?,?,?,?,?);");
 			statement.setString(1, tabyouinid);
 			statement.setString(2, tabyouinmei);
+
+
 			statement.setString(3, tabyouinaddress);
 			statement.setString(4,tabyouintel);
 			statement.setString(5, tabyouinshihonkin);
@@ -313,7 +322,7 @@ public class Dao1 {
 
 
 					}else{
-						throw new SQLException("商品コードが見つかりません");
+						throw new SQLException("ユーザが見つかりません");
 					}
 
 
@@ -329,6 +338,8 @@ public class Dao1 {
 		this.open();
 		try {
 			statement =connection.prepareStatement("UPDATE employee set emppasswd = ? where empid = ?");
+			ToSHA2 sha2=new ToSHA2();
+			emppasswd=sha2.getDigest(emppasswd);
 			statement.setString(1,emppasswd);
 
 			statement.setString(2,empid);
@@ -355,4 +366,39 @@ public class Dao1 {
 			e.printStackTrace();
 		}
 	}
+	public void PatRegister(String patid,String patfname,String patlname,String hokenmei,String hokenexp){
+		//String beforepass;
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("insert into patient (patid,patfname,patlname,hokenmei,hokenexp) values(?,?,?,?,?);");
+			statement.setString(1, patid);
+			statement.setString(2, patfname);
+			statement.setString(3, patlname);
+			statement.setString(4, hokenmei);
+			statement.setString(5, hokenexp);
+			int num=statement.executeUpdate();
+			System.out.println(num);
+			rs=statement.executeQuery();
+			System.out.println(patid);
+					while(rs.next()){
+						//beforepass=emppasswd;
+						//eBean=new EmpBean();
+						//eBean.setEmppasswd(beforepass);
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+}
 }

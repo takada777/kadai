@@ -48,6 +48,7 @@ public class RegisterServlet extends HttpServlet {
 			session.setAttribute("emplname", emplname);
 			session.setAttribute("emppasswd", emppasswd);
 			session.setAttribute("emprole", emprole);
+			//session.setAttribute("yakuwari", yakuwari);
 			//EmpBean eBean=new EmpBean();
 			//session.setAttribute("eBean", eBean);
 			//System.out.print(eBean.emppasswd);

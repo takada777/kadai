@@ -9,19 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.Dao1;
-
 /**
- * Servlet implementation class EmpLoginServlet
+ * Servlet implementation class RegisterPatientServlet
  */
-@WebServlet("/EmpLoginServlet")
-public class EmpLoginServlet extends HttpServlet {
+@WebServlet("/RegisterPatientServlet")
+public class RegisterPatientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EmpLoginServlet() {
+    public RegisterPatientServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,31 +30,28 @@ public class EmpLoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmpBean eBean=new EmpBean();
-		String empid=request.getParameter("empid");
-		String emppasswd=request.getParameter("emppasswd");
-		Dao1 dao=new Dao1();
-		if (dao.Emplogin(empid, emppasswd)) {
-
-			eBean.getEmprole();
-
-			ToSHA2 sha2=new ToSHA2();
-			sha2.getDigest(emppasswd);
+		String patid=request.getParameter("patid");
+		String patfname=request.getParameter("patfname");
+		String patlname=request.getParameter("patlname");
+		String hokenmei=request.getParameter("hokenmei");
+		String hokenexp=request.getParameter("hokenexp");
 
 
 
-			HttpSession session=request.getSession();
-		session.setAttribute("empid", empid);
 
-		session.setAttribute("emppasswd", emppasswd);
 
-		getServletContext().getRequestDispatcher("/UketsukeMain.jsp").forward(request, response);
-		dao.close();}
-		else{
-			getServletContext().getRequestDispatcher("/EmpFailed.jsp").forward(request, response);
-			dao.close();
+		HttpSession session=request.getSession();
+		session.setAttribute("patid", patid);
+		session.setAttribute("patfname", patfname);
+		session.setAttribute("patlname", patlname);
+		session.setAttribute("hokenmei", hokenmei);
+		session.setAttribute("hokenexp", hokenexp);
+
+
+		getServletContext().getRequestDispatcher("/kakunin.jsp").forward(request, response);
+
 		}
-	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

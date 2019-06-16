@@ -3,6 +3,13 @@ package kadai1;
 import java.io.Serializable;
 
 public class EmpBean implements Serializable {
+String beforepass;
+public String getBeforepass() {
+	return beforepass;
+}
+public void setBeforepass(String beforepass) {
+	this.beforepass = beforepass;
+}
 String empid;
 String empfname;
 String emplname;

@@ -7,6 +7,21 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<form action="CheckEmpPass.jsp" method="post">
+<% String empid = request.getParameter("empid");
+%>
+<p>変更後のパスワードを入力してください</p>
+パスワード
+<br>
+<input type="text" name="newemppasswd" size="20">
 
+
+<br>
+<input type="submit" value="送信">
+
+<input type="hidden" name="emppasswd" value="<%=eBean.getEmppasswd()%>">
+<input type="hidden" name="empid" value="<%=eBean.getEmpid()%>">
+</form>
 </body>
 </html>
