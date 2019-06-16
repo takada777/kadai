@@ -32,16 +32,17 @@ public class EmpLoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		EmpBean eBean=new EmpBean();
+		//EmpBean eBean=new EmpBean();
 		String empid=request.getParameter("empid");
 		String emppasswd=request.getParameter("emppasswd");
 		Dao1 dao=new Dao1();
-		if (dao.Emplogin(empid, emppasswd)) {
+	if (dao.Emplogin(empid, emppasswd)) {
+		EmpBean eBean2=new EmpBean();
 
-			eBean.getEmprole();
 
 			ToSHA2 sha2=new ToSHA2();
 			sha2.getDigest(emppasswd);
+
 
 
 
@@ -49,10 +50,26 @@ public class EmpLoginServlet extends HttpServlet {
 		session.setAttribute("empid", empid);
 
 		session.setAttribute("emppasswd", emppasswd);
+		eBean2=dao.Emplogin2(empid, emppasswd);
+		int emprole= eBean2.getEmprole();
+
+		if (emprole==2) {
+
 
 		getServletContext().getRequestDispatcher("/UketsukeMain.jsp").forward(request, response);
-		dao.close();}
-		else{
+		dao.close();
+		}
+		else if(emprole==3){
+			getServletContext().getRequestDispatcher("/IshiMain.jsp").forward(request, response);
+			dao.close();
+			}
+		else if(emprole==1){
+			getServletContext().getRequestDispatcher("/AdminMain.jsp").forward(request, response);
+			dao.close();
+
+			}
+		}
+	else{
 			getServletContext().getRequestDispatcher("/EmpFailed.jsp").forward(request, response);
 			dao.close();
 		}

@@ -23,7 +23,7 @@ String empid=(String)session.getAttribute("empid");
 </form>
 <br>
 <p></p>
-<form action="AdminOutput" method="post">
+<form action="PatientOutput" method="post">
 <input type="submit"  value="保険証情報">
 </form>
 <br>

@@ -8,10 +8,13 @@ import java.sql.SQLException;
 
 import kadai1.EmpArrayBean;
 import kadai1.EmpBean;
+import kadai1.PatArrayBean;
+import kadai1.PatBean;
 import kadai1.TabyouinArrayBean;
 import kadai1.TabyouinBean;
 import kadai1.ToSHA2;
 import kadai1.employeeParameter;
+import kadai1.patientpara;
 import kadai1.tabyouinPara;
 
 
@@ -21,6 +24,7 @@ public class Dao1 {
 	private PreparedStatement statement = null;
 	EmpBean eBean=null;
 	TabyouinBean TBean=null;
+	PatBean pBean=null;
 
 
 
@@ -89,6 +93,9 @@ public class Dao1 {
 			rs=statement.executeQuery();
 			//eBean.setEmprole(rs.getInt(employeeParameter.emprole));
 					if(rs.next()){
+						eBean=new EmpBean();
+						eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+
 						return true;
 					}else {
 						return false;
@@ -401,4 +408,130 @@ public class Dao1 {
 		}
 
 }
+	public  EmpBean Emplogin2(String empid,String emppasswd){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM employee WHERE empid = ? AND emppasswd = ? ");
+			statement.setString(1, empid);
+			statement.setString(2, emppasswd);
+
+			rs=statement.executeQuery();
+			//eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+					if(rs.next()){
+						eBean=new EmpBean();
+						eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+
+
+					}else {
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return eBean;
+	}
+	public boolean SerchEmp3(String empid){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM employee WHERE empid = ? ");
+			statement.setString(1, empid);
+
+
+			rs=statement.executeQuery();
+
+					if(rs.next()){
+						return true;
+
+
+					}
+					return false;
+
+
+
+
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return false;
+}
+	public PatArrayBean outputPat(){
+		PatArrayBean paBean=new PatArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM patient ");
+
+			rs=statement.executeQuery();
+			while(rs.next()){
+				pBean=new PatBean();
+				pBean.setPatid(rs.getString(patientpara.patid));
+				pBean.setPatlname(rs.getString(patientpara.patlname));
+				pBean.setPatfname(rs.getString(patientpara.patfname));
+				pBean.setHokenmei(rs.getString(patientpara.hokenmei));
+				pBean.setHokenexp(rs.getDate(patientpara.hokenexp));
+				paBean.addPatArray(pBean);
+
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return paBean;
+
+
+	}
+	public void hokenUpdate(String hokenmei,String hokenexp,String patid){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("UPDATE patient set hokenmei = ?,hokenexp = ? where patid = ?");
+			statement.setString(1,hokenmei);
+			statement.setString(2,hokenexp);
+			statement.setString(3,patid);
+
+
+			int num=statement.executeUpdate();
+			System.out.println(num);
+			rs=statement.executeQuery();
+
+					while(rs.next()){
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+	}
 }

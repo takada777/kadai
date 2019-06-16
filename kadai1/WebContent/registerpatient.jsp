@@ -8,6 +8,7 @@
 </head>
 <body>
 <form action="RegisterPatientServlet" method="get">
+<fieldset>
 <font size="5">
 患者登録
 </font>
@@ -19,9 +20,11 @@
 <input type="text" name="patfname"></p>
 <p>保険証記号番号<br>
 <input type="text" name="hokenmei"></p>
-<p>有効期限<br>
-<input type="text" name="hokenexp"></p>
+<p>有効期限<br></p>
+<input type="text" name="hokenexp" placeholder="例）20190610">
+<br><br>
 <input type="submit" value="登録する">
+</fieldset>
 </form>
 </body>
 </html>

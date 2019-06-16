@@ -27,7 +27,7 @@
 </form>
 <br>
 <p></p>
-<input type="submit"  value="他病院一覧">
+
 <br>
 <p></p>
 <form action="SerchTabyouin.jsp" method="post">
@@ -35,6 +35,6 @@
 </form>
 <br>
 <p></p>
-<input type="submit"  value="他病院情報表示">
+
 </body>
 </html>

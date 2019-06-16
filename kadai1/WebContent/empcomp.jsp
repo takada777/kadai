@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>官僚</title>
+<title>a</title>
 </head>
 <body>
 <%
@@ -20,15 +20,22 @@ String emprole=(String)session.getAttribute("emprole");
 
 
 
-%>
-<p>かんりょうしました</p>
-<% String action=request.getParameter("action");
 
-	Dao1 dao=new Dao1();
+ Dao1 dao=new Dao1();
+if(dao.SerchEmp3(empid)){
+%>
+<p>入力されたIDは使用されています</p>
+<% }else { %>
+<p>かんりょうしました</p>
+<%
 
 			dao.Register(empid, empfname, emplname, emppasswd, emprole);
 			dao.close();
 
 			%>
+			<% } %>
+		<form action="register.jsp" method="post">
+<input type="submit" value="戻る" name="action">
+</form>
 </body>
 </html>
