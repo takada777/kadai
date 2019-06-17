@@ -72,7 +72,7 @@ public class EmpLoginServlet extends HttpServlet {
 			}
 		}
 	else{
-			getServletContext().getRequestDispatcher("/EmpFailed.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/EmpFailled.jsp").forward(request, response);
 			dao.close();
 		}
 	}

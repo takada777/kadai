@@ -8,6 +8,9 @@ import java.sql.SQLException;
 
 import kadai1.EmpArrayBean;
 import kadai1.EmpBean;
+import kadai1.MedicineArrayBean;
+import kadai1.MedicineBean;
+import kadai1.MedicinePara;
 import kadai1.PatArrayBean;
 import kadai1.PatBean;
 import kadai1.TabyouinArrayBean;
@@ -25,6 +28,7 @@ public class Dao1 {
 	EmpBean eBean=null;
 	TabyouinBean TBean=null;
 	PatBean pBean=null;
+	MedicineBean mBean=null;
 
 
 
@@ -562,6 +566,34 @@ public class Dao1 {
 			e.printStackTrace();
 		}
 		return paBean;
+
+
+	}
+	public MedicineArrayBean outputMedicine(){
+		MedicineArrayBean maBean=new MedicineArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM medicine ");
+
+			rs=statement.executeQuery();
+			while(rs.next()){
+				mBean=new MedicineBean();
+				mBean.setMedicineid(rs.getString(MedicinePara.medicineid));
+
+				mBean.setMedicinename(rs.getString(MedicinePara.medicinename));
+
+				mBean.setUnit(rs.getString(MedicinePara.unit));
+				maBean.addMediArray(mBean);
+
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return maBean;
 
 
 	}

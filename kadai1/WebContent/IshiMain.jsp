@@ -13,8 +13,9 @@ String empid=(String)session.getAttribute("empid");
 <title>医師ページ</title>
 </head>
 <body>
+<h3>医師メニュー</h3>
 <br>
-<form action="SerchPatient.jsp" method="post">
+<form action="SerchPatient2.jsp" method="post">
 <input type="submit"  value="患者検索">
 <input type="hidden" name="empid" value="<%=empid%>">
 </form>
