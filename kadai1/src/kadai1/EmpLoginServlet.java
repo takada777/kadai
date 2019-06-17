@@ -35,12 +35,14 @@ public class EmpLoginServlet extends HttpServlet {
 		//EmpBean eBean=new EmpBean();
 		String empid=request.getParameter("empid");
 		String emppasswd=request.getParameter("emppasswd");
+		ToSHA2 sha2=new ToSHA2();
+	emppasswd= sha2.getDigest(emppasswd);
 		Dao1 dao=new Dao1();
 	if (dao.Emplogin(empid, emppasswd)) {
 		EmpBean eBean2=new EmpBean();
 
 
-			ToSHA2 sha2=new ToSHA2();
+			//ToSHA2 sha2=new ToSHA2();
 			sha2.getDigest(emppasswd);
 
 

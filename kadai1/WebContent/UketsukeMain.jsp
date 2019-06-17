@@ -28,7 +28,7 @@ String empid=(String)session.getAttribute("empid");
 </form>
 <br>
 <p></p>
-<form action="TabyouinRegister.jsp" method="post">
+<form action="SerchPatient.jsp" method="post">
 <input type="submit" value="患者検索">
 </form>
 

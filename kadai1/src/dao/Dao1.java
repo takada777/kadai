@@ -534,4 +534,35 @@ public class Dao1 {
 			e.printStackTrace();
 		}
 	}
+	public PatArrayBean serchpat(String patname){
+		PatArrayBean paBean=new PatArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM patient WHERE patlname LIKE ? or patfname like ?");
+			statement.setString(1, "%"+patname+"%");
+			statement.setString(2, "%"+patname+"%");
+			rs=statement.executeQuery();
+			while(rs.next()){
+				pBean=new PatBean();
+				pBean.setPatid(rs.getString(patientpara.patid));
+				pBean.setPatfname(rs.getString(patientpara.patfname));
+				pBean.setPatlname(rs.getString(patientpara.patlname));
+				pBean.setHokenmei(rs.getString(patientpara.hokenmei));
+				pBean.setHokenexp(rs.getDate(patientpara.hokenexp));
+
+				paBean.addPatArray(pBean);
+				System.out.println(paBean.getArraysize());
+
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return paBean;
+
+
+	}
 }
