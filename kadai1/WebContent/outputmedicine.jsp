@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
 
 <table border="1">
@@ -24,8 +25,9 @@ for(MedicineBean mBean : ma){
     <td><%= mBean.getMedicineid()%></td>
     <td><%= mBean.getMedicinename() %></td>
     <td><%= mBean.getUnit()%></td>
-	<th><form action="checkmedicine.jsp" method="post"><select name="kosu">
-				<option value="">-</option>
+    <form action="Checkmedicine" method="post">
+	<th><select name="kosu">
+				<option value="0">-</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -38,44 +40,34 @@ for(MedicineBean mBean : ma){
 			</select>
 			</th>
 
-
-
-
-
-
-
-
-
-
   </tr>
 
 
+
+
+
 <%
-	//System.out.println(pBean.getHokenmei());
-  }
-%>
+HttpSession httpSession=request.getSession();
+session. setAttribute("mBean", mBean);
 
-
-
+} %>
 
 </table>
 
 
+
 		<input type="submit" value="投与">
-		<%
-for(MedicineBean mBean : ma){
+<% for(MedicineBean mBean : ma){%>
+	<input type="hidden" name="medicineid" value="<%=mBean.getMedicineid()%>">
 
-	%>
-		<input type="hidden" name="medicineid" value="<%= mBean.getMedicineid()%>">
-		<input type="hidden" name="medicinename" value="<%= mBean.getMedicinename()%>">
-		<input type="hidden" name="unit" value="<%= mBean.getUnit()%>">
 
+<%
+}%>
 
     	 </form>
-    	 <%
 
-    	 } %>
-<form action="UketsukeMain.jsp" method="post">
+
+<form action="IshiMain.jsp" method="post">
 <input type="submit" value="メニューに戻る">
 </form>
 </body>

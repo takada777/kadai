@@ -596,5 +596,35 @@ public class Dao1 {
 		return maBean;
 
 
+
+
+	}
+	public MedicineArrayBean outputMedicine2(String medicineid,int kosu){
+		MedicineArrayBean maBean=new MedicineArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM medicine where medicineid=?");
+			statement.setString(1, "%"+medicineid+"%");
+			rs=statement.executeQuery();
+			while(rs.next()){
+				mBean=new MedicineBean();
+				mBean.setMedicineid(rs.getString(MedicinePara.medicineid));
+
+				mBean.setMedicinename(rs.getString(MedicinePara.medicinename));
+
+				mBean.setUnit(rs.getString(MedicinePara.unit));
+				mBean.setKosu(kosu);
+				maBean.addMediArray(mBean);
+				
+
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return maBean;
 	}
 }

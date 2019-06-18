@@ -32,5 +32,8 @@ public void setUnit(String unit) {
 	this.unit = unit;
 }
 public int getTotalKosu(){
-	return shohinPrice * quantity;
+	int sum=0;
+
+	return sum+=kosu;
+}
 }
