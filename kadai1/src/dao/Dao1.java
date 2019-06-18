@@ -556,7 +556,7 @@ public class Dao1 {
 				pBean.setHokenexp(rs.getDate(patientpara.hokenexp));
 
 				paBean.addPatArray(pBean);
-				System.out.println(paBean.getArraysize());
+
 
 			}
 

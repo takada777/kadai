@@ -33,15 +33,13 @@ public class OutputMedicine extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		Dao1 dao1=new Dao1();
-		PatArrayBean paBean=dao1.serchpat(patname);
+		MedicineArrayBean maBean=dao1.outputMedicine();
 
 		HttpSession session=request.getSession();
-		session. setAttribute("paBean", paBean);
-		session.setAttribute("patname", patname);
+		session. setAttribute("maBean", maBean);
+		//session.setAttribute("patname", patname);
 
-		if(paBean.getArraysize()==0){
-			getServletContext().getRequestDispatcher("/Patfailed.jsp").forward(request, response);
-
+			getServletContext().getRequestDispatcher("/outputmedicine.jsp").forward(request, response);
 			dao1.close();
 	}
 

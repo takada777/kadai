@@ -6,6 +6,13 @@ public class MedicineBean implements Serializable{
 String medicineid;
 String medicinename;
 String unit;
+int kosu;
+public int getKosu() {
+	return kosu;
+}
+public void setKosu(int kosu) {
+	this.kosu = kosu;
+}
 public String getMedicineid() {
 	return medicineid;
 }
@@ -24,4 +31,6 @@ public String getUnit() {
 public void setUnit(String unit) {
 	this.unit = unit;
 }
+public int getTotalKosu(){
+	return shohinPrice * quantity;
 }

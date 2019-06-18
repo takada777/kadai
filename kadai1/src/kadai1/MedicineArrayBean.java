@@ -24,6 +24,13 @@ public class MedicineArrayBean implements Serializable{
 	   public void setMediArray(ArrayList<MedicineBean> mediArray) {
 			this.mediArray = mediArray;
 		}
+	   public int getTotalkosu(){
+		   int kosu=0;
+		   for(MedicineBean rec : mediArray){
+			   kosu+=rec.getTotalPrice();
+		   }
+		return sum;
+	   }
 }
 
 
