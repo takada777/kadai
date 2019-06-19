@@ -11,7 +11,7 @@
 <body>
 
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
-
+ <form action="Checkmedicine" method="post">
 <table border="1">
 <tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th>個数</th></tr>
 <%
@@ -25,7 +25,7 @@ for(MedicineBean mBean : ma){
     <td><%= mBean.getMedicineid()%></td>
     <td><%= mBean.getMedicinename() %></td>
     <td><%= mBean.getUnit()%></td>
-    <form action="Checkmedicine" method="post">
+
 	<th><select name="kosu">
 				<option value="0">-</option>
 				<option value="1">1</option>

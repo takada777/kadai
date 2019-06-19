@@ -36,5 +36,11 @@ for(TabyouinBean TBean : TA){
   }
 %>
 </table>
+<form action="SerchTabyouin.jsp" method="post">
+<input type="submit" value="続けて検索">
+</form>
+<form action="AdminMain.jsp" method="post">
+<input type="submit" value="メニューへ">
+</form>
 </body>
 </html>

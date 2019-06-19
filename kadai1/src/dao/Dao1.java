@@ -270,7 +270,7 @@ public class Dao1 {
 				TBean=new TabyouinBean();
 				TBean.setTabyouinid(rs.getString(tabyouinPara.tabyouinid));
 				TBean.setTabyouinmei(rs.getString(tabyouinPara.tabyouinmei));
-				TBean.setTabyouinaddress(tabyouinaddress);
+				TBean.setTabyouinaddress(tabyouinPara.tabyouinaddress);
 				TBean.setTabyouintel(rs.getString(tabyouinPara.tabyouintel));
 				TBean.setTabyouinshihonkin(rs.getInt(tabyouinPara.tabyouinshihonkin));
 				TBean.setKyukyu(rs.getInt(tabyouinPara.kyukyu));
@@ -616,7 +616,7 @@ public class Dao1 {
 				mBean.setUnit(rs.getString(MedicinePara.unit));
 				mBean.setKosu(kosu);
 				maBean.addMediArray(mBean);
-				
+
 
 			}
 

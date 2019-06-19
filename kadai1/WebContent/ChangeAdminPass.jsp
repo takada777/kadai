@@ -13,29 +13,23 @@
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <% String newemppasswd = request.getParameter("newemppasswd");
  String emppasswd = request.getParameter("emppasswd");
+ String newemppasswd2 = request.getParameter("newemppasswd2");
+ System.out.println(newemppasswd);
+ System.out.println(newemppasswd2);
  //System.out.println(eBean.getBeforepass());
+if(!newemppasswd.equals(newemppasswd2)){%>
 
-%>
+<p>パスワードが一致していません</p>
+<form action="DisAdmin.jsp" method="post">
+<input type="submit" value="戻る">
+</form>
+<%}else{ %>
+<p>パスワードを変更しますか？</p>
 
- <TABLE >
-<TR>
-<TD ALIGN="LEFT">変更前
-<TD ALIGN="CEnter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<TD ALIGN="RIGHT">変更後
-</TABLE>
 
- <TABLE>
-<TR>
-<TD ALIGN="CENTER"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;パスワード
-<TD ALIGN="RIGHT">
-</TABLE>
 
-<TABLE>
-<TR>
-<TD ALIGN="LEFT"><%=emppasswd%>
-<TD ALIGN="CENTER">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
-<TD ALIGN="RIGHT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=newemppasswd %>
-</TABLE>
+
+
 
 
 <form action="DisAdmin.jsp" method="post">
@@ -44,7 +38,8 @@
 <form action="UpdatePassServlet2" method="post">
 <input type="hidden" name="newemppasswd" value="<%= newemppasswd%>">
 <input type="hidden" name="empid" value="<%= eBean.getEmpid()%>">
-<input type="submit" value="送信">
+<input type="submit" value="変更する">
 </form>
+<% } %>
 </body>
 </html>

@@ -25,10 +25,10 @@ String emprole=(String)session.getAttribute("emprole");
 <p>この内容で登録しますか？</p>
 <p>従業員ID</p>
 <%=empid %>
-<p>従業員名</p>
-<%=empfname %>
-<p>従業員姓</p>
+<p>苗字</p>
 <%=emplname %>
+<p>名前</p>
+<%=empfname %>
 <p>パスワード</p>
 <%=emppasswd %>
 <p>役割</p>

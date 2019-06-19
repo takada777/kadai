@@ -23,6 +23,9 @@ String hokenexp=(String)session.getAttribute("hokenexp");
 
 %>
 <p>完了しました</p>
+<form action="UketsukeMain.jsp" method="post">
+<input type="submit" value="メニューへ" name="action">
+</form>
 <%
 	Dao1 dao=new Dao1();
 	dao.PatRegister(patid, patfname, patlname, hokenmei, hokenexp);

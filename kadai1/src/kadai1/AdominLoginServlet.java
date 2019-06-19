@@ -34,6 +34,8 @@ public class AdominLoginServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String empid=request.getParameter("empid");
 		String emppasswd=request.getParameter("emppasswd");
+		ToSHA2 sha2=new ToSHA2();
+		emppasswd= sha2.getDigest(emppasswd);
 		Dao1 dao=new Dao1();
 		if (dao.Adminlogin(empid, emppasswd)) {
 

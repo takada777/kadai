@@ -10,38 +10,26 @@
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <% String newemppasswd = request.getParameter("newemppasswd");
  String emppasswd = request.getParameter("emppasswd");
+ String newemppasswd2 = request.getParameter("newemppasswd2");
  //System.out.println(eBean.getBeforepass());
 
-%>
 
- <TABLE >
-<TR>
-<TD ALIGN="LEFT">変更前
-<TD ALIGN="CEnter">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<TD ALIGN="RIGHT">変更後
-</TABLE>
+if(!newemppasswd.equals(newemppasswd2)){%>
 
- <TABLE>
-<TR>
-<TD ALIGN="CENTER"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;パスワード
-<TD ALIGN="RIGHT">
-</TABLE>
-
-<TABLE>
-<TR>
-<TD ALIGN="LEFT"><%=emppasswd%>
-<TD ALIGN="CENTER">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
-<TD ALIGN="RIGHT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=newemppasswd %>
-</TABLE>
-
-
-<form action="ChangeempPass.jsp" method="post">
+<p>パスワードが一致していません</p>
+<form action="ChangeEmpPass.jsp" method="post">
+<input type="submit" value="戻る">
+</form>
+<%}else{ %>
+<p>パスワードを変更しますか？</p>
+<form action="ChangeEmpPass.jsp" method="post">
 <input type="submit" value="戻る">
 </form>
 <form action="ChangeEmppass2" method="post">
 <input type="hidden" name="newemppasswd" value="<%= newemppasswd%>">
 <input type="hidden" name="empid" value="<%= eBean.getEmpid()%>">
-<input type="submit" value="送信">
+<input type="submit" value="変更する">
+<% } %>
 </form>
 </body>
 </html>

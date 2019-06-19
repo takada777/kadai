@@ -14,7 +14,10 @@
 <p>変更後のパスワードを入力してください</p>
 パスワード
 <br>
-<input type="text" name="newemppasswd" size="20">
+<input type="text" name="newemppasswd" size="20"><br>
+パスワード再入力
+<br>
+<input type="text" name="newemppasswd2" size="20">
 
 
 <br>

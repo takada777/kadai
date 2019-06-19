@@ -36,7 +36,7 @@ public class Checkmedicine extends HttpServlet {
 		int kosu=Integer.parseInt(request.getParameter("kosu"));
 
 		String medicineid=request.getParameter("medicineid");
-		System.out.println(medicineid);
+
 		Dao1 dao1=new Dao1();
 		MedicineArrayBean maBean=dao1.outputMedicine2(medicineid, kosu);
 		HttpSession session=request.getSession();

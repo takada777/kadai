@@ -25,9 +25,9 @@ String hokenexp=(String)session.getAttribute("hokenexp");
 <p>患者ID</p>
 <%=patid %>
 <p>苗字</p>
-<%=patfname %>
-<p>名前</p>
 <%=patlname %>
+<p>名前</p>
+<%=patfname %>
 <p>保険証記号番号</p>
 <%=hokenmei %>
 <p>有効期限</p>

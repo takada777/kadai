@@ -26,7 +26,7 @@ if(dao.SerchEmp3(empid)){
 %>
 <p>入力されたIDは使用されています</p>
 <% }else { %>
-<p>かんりょうしました</p>
+<p>完了しました</p>
 <%
 
 			dao.Register(empid, empfname, emplname, emppasswd, emprole);
@@ -35,7 +35,11 @@ if(dao.SerchEmp3(empid)){
 			%>
 			<% } %>
 		<form action="register.jsp" method="post">
-<input type="submit" value="戻る" name="action">
+<input type="submit" value="続けて登録" name="action">
+</form>
+<br>
+		<form action="AdminMain.jsp" method="post">
+<input type="submit" value="メニューへ" name="action">
 </form>
 </body>
 </html>

@@ -21,7 +21,13 @@ String kyukyu=(String)session.getAttribute("kyukyu");
 
 
 %>
-<p>かんりょうしました</p>
+<p>完了しました</p>
+<form action="TabyouinRegister.jsp" method="post">
+<input type="submit" value="続けて登録">
+</form>
+<form action="AdminMain.jsp" method="post">
+<input type="submit" value="メニューへ">
+</form>
 <%
 
 	Dao1 dao=new Dao1();
