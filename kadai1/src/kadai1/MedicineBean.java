@@ -7,6 +7,13 @@ String medicineid;
 String medicinename;
 String unit;
 int kosu;
+String kazu;
+public String getKazu() {
+	return kazu;
+}
+public void setKazu(String kazu) {
+	this.kazu = kazu;
+}
 public int getKosu() {
 	return kosu;
 }
@@ -35,5 +42,9 @@ public int getTotalKosu(){
 	int sum=0;
 
 	return sum+=kosu;
+}
+public void set(String string) {
+	// TODO 自動生成されたメソッド・スタブ
+
 }
 }

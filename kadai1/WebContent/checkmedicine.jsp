@@ -10,8 +10,9 @@
 </head>
 <body>
 <%
-int kosu=Integer.parseInt(request.getAttribute("kosu"));
+//int kosu=Integer.parseInt(request.getParameterValues("kosu"));
 //System.out.println(kosu);
+int kazu=Integer.parseInt(request.getParameterValues("kosu"));
  %>
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
 
@@ -29,7 +30,9 @@ for(MedicineBean mBean : ma){
     <td><%= mBean.getMedicineid()%></td>
     <td><%= mBean.getMedicinename() %></td>
     <td><%= mBean.getUnit()%></td>
-    <td><%=mBean.getKosu()%>
+    <%for (int i = 0 ; i < kazu.length ; i++){ %>
+    <td><%=mBean.getKazu(kazu[i])%></td>
+    <% } %>
 
 
 
