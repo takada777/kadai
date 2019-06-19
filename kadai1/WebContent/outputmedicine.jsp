@@ -13,7 +13,7 @@
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
  <form action="Checkmedicine" method="post">
 <table border="1">
-<tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th>個数</th></tr>
+<tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th>個数</th><th></th></tr>
 <%
 ArrayList<MedicineBean> ma=maBean.getMediArray();
 
@@ -59,9 +59,12 @@ session. setAttribute("mBean", mBean);
 		<input type="submit" value="投与">
 <% for(MedicineBean mBean : ma){%>
 	<input type="hidden" name="medicineid" value="<%=mBean.getMedicineid()%>">
+	<input type="hidden" name="medicinename" value="<%=mBean.getMedicinename()%>">
+	<input type="hidden" name="unit" value="<%=mBean.getUnit()%>">
 
 
 <%
+System.out.println(mBean.getMedicineid());
 }%>
 
     	 </form>

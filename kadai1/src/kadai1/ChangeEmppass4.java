@@ -8,17 +8,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.Dao1;
+
 /**
- * Servlet implementation class Checkmedicine
+ * Servlet implementation class ChangeEmppass4
  */
-@WebServlet("/Checkmedicine")
-public class Checkmedicine extends HttpServlet {
+@WebServlet("/ChangeEmppass4")
+public class ChangeEmppass4 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Checkmedicine() {
+    public ChangeEmppass4() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,23 +31,16 @@ public class Checkmedicine extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		int kosu=Integer.parseInt(request.getParameter("kosu"));
-
-		String medicineid=request.getParameter("medicineid");
-		String medicinename=request.getParameter("medicinename");
-		String unit=request.getParameter("unit");
-		
-		//Dao1 dao1=new Dao1();
-	//	MedicineArrayBean maBean=dao1.outputMedicine2(medicineid, kosu);
-	//	HttpSession session=request.getSession();
-	//	session. setAttribute("maBean", maBean);
-	//	getServletContext().getRequestDispatcher("/checkmedicine.jsp").forward(request, response);
-	//	dao1.close();
+		 String emppasswd = request.getParameter("newemppasswd");
 
 
+			String empid = request.getParameter("empid");
+			Dao1 dao=new Dao1();
+			dao.UpdatePass(emppasswd, empid);
 
-	}
+			getServletContext().getRequestDispatcher("/test7.jsp").forward(request, response);
+			dao.close();}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -7,18 +7,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.Dao1;
 
 /**
- * Servlet implementation class Checkmedicine
+ * Servlet implementation class ChangeEmpPass3
  */
-@WebServlet("/Checkmedicine")
-public class Checkmedicine extends HttpServlet {
+@WebServlet("/ChangeEmpPass3")
+public class ChangeEmpPass3 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Checkmedicine() {
+    public ChangeEmpPass3() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -26,26 +29,19 @@ public class Checkmedicine extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		int kosu=Integer.parseInt(request.getParameter("kosu"));
+		String empid=request.getParameter("empid");
+		Dao1 dao1=new Dao1();
+		EmpBean eBean= dao1.SerchEmp(empid);
+		HttpSession httpSession=request.getSession();
+		httpSession. setAttribute("eBean", eBean);
+		httpSession. setAttribute("empid", empid);
 
-		String medicineid=request.getParameter("medicineid");
-		String medicinename=request.getParameter("medicinename");
-		String unit=request.getParameter("unit");
-		
-		//Dao1 dao1=new Dao1();
-	//	MedicineArrayBean maBean=dao1.outputMedicine2(medicineid, kosu);
-	//	HttpSession session=request.getSession();
-	//	session. setAttribute("maBean", maBean);
-	//	getServletContext().getRequestDispatcher("/checkmedicine.jsp").forward(request, response);
-	//	dao1.close();
-
-
-
+		getServletContext().getRequestDispatcher("/ChangeEmpPass3.jsp").forward(request, response);
 	}
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

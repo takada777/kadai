@@ -20,7 +20,7 @@ String empid=(String)session.getAttribute("empid");
 <input type="hidden" name="empid" value="<%=empid%>">
 </form>
 <br>
-<form action="registerpatient.jsp" method="post">
+<form action="ChangeEmpPass3" method="post">
 <input type="submit"  value="パスワード変更" >
 <input type="hidden" name="empid" value="<%=empid%>">
 </form>

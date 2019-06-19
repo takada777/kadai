@@ -10,7 +10,7 @@
 </head>
 <body>
 <%
-//int kosu=Integer.parseInt(request.getParameter("kosu"));
+int kosu=Integer.parseInt(request.getAttribute("kosu"));
 //System.out.println(kosu);
  %>
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
