@@ -32,21 +32,36 @@ public class Checkmedicine extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
-		String medicineid=request.getParameter("medicine");
+		String medicineid=request.getParameter("medicineid");
+		MedicineArrayBean maBean=new MedicineArrayBean();
 		MedicineBean mBean=new MedicineBean();
-		mBean= (MedicineBean)session.getAttribute("mBean");
-	//System.out.println(mBean.getMedicineid());
+		maBean= (MedicineArrayBean)session.getAttribute("maBean");
+		mBean = (MedicineBean)session.getAttribute("mBean");
+
+
+		int i=0;
+
 		//String medicineid=request.getParameter("medicineid");
 		String medicinename=request.getParameter("medicinename");
 		String unit=request.getParameter("unit");
 
-		ArrayList<MedicineBean > list=new ArrayList<>();
+		ArrayList<MedicineBean > ma=new ArrayList<>();
+		ArrayList<MedicineBean > ma2=new ArrayList<>();
+		ma=maBean.getMediArray();
+		String kazu[] = request.getParameterValues("kosu");
 
-		int kazu[] = request.getParameterValues("kosu");
-		for (int i = 0 ; i < kazu.length ; i++){
 
-	       mBean.setKazu (kazu[i]);
+		while(i<maBean.getArraysize()){
+			//System.out.println(kazu[i]);
+			mBean.setKosu2(kazu);
+			maBean.addMediArray(mBean);
+			//
+			i++;
+
+
+
 		}
+		System.out.println(mBean.getKosu2());
 		//Dao1 dao1=new Dao1();
 	//	MedicineArrayBean maBean=dao1.outputMedicine2(medicineid, kosu);
 	//	HttpSession session=request.getSession();

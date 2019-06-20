@@ -8,6 +8,13 @@ String medicinename;
 String unit;
 int kosu;
 String kazu;
+String kosu2[];
+public String[] getKosu2() {
+	return kosu2;
+}
+public void setKosu2(String[] kosu2) {
+	this.kosu2 = kosu2;
+}
 public String getKazu() {
 	return kazu;
 }

@@ -12,14 +12,15 @@
 <%
 //int kosu=Integer.parseInt(request.getParameterValues("kosu"));
 //System.out.println(kosu);
-int kazu=Integer.parseInt(request.getParameterValues("kosu"));
+//int kazu=Integer.parseInt(request.getParameterValues("kosu"));
  %>
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
 
 <table border="1">
 <tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th>個数</th></tr>
 <%
-
+int i=0;
+String kazu[] = request.getParameterValues("kosu");
 ArrayList<MedicineBean> ma=maBean.getMediArray();
 
 for(MedicineBean mBean : ma){
@@ -30,8 +31,17 @@ for(MedicineBean mBean : ma){
     <td><%= mBean.getMedicineid()%></td>
     <td><%= mBean.getMedicinename() %></td>
     <td><%= mBean.getUnit()%></td>
-    <%for (int i = 0 ; i < kazu.length ; i++){ %>
-    <td><%=mBean.getKazu(kazu[i])%></td>
+    <td><%while(i<maBean.getArraysize()){
+		
+		mBean.setKosu2(kazu);
+		//System.out.println(mBean.getKosu2());
+		i++;
+
+
+
+	} %></td>
+
+
     <% } %>
 
 
@@ -48,10 +58,7 @@ for(MedicineBean mBean : ma){
   </tr>
 
 
-<%
-	//System.out.println(pBean.getHokenmei());
-  }
-%>
+
 
 
 

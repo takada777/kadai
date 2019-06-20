@@ -47,8 +47,7 @@ for(MedicineBean mBean : ma){
 
 
 <%
-HttpSession httpSession=request.getSession();
-session. setAttribute("mBean", mBean);
+
 
 } %>
 
@@ -64,7 +63,10 @@ session. setAttribute("mBean", mBean);
 
 
 <%
-System.out.println(mBean.getMedicineid());
+HttpSession httpSession=request.getSession();
+session. setAttribute("maBean", maBean);
+session. setAttribute("mBean", mBean);
+
 }%>
 
     	 </form>
