@@ -15,10 +15,10 @@
 <p>変更後のパスワードを入力してください</p>
 パスワード
 <br>
-<input type="text" name="newemppasswd" size="20"><br>
+<input type="password" name="newemppasswd" size="20"><br>
 パスワード再入力
 <br>
-<input type="text" name="newemppasswd2" size="20">
+<input type="password" name="newemppasswd2" size="20">
 
 
 <br>
@@ -27,5 +27,7 @@
 <input type="hidden" name="emppasswd" value="<%=eBean.getEmppasswd()%>">
 <input type="hidden" name="empid" value="<%=eBean.getEmpid()%>">
 </form>
+<input type="button" value="戻る"
+			onclick="location.href='IshiMain.jsp'" />
 </body>
 </html>

@@ -31,6 +31,7 @@ String empid=(String)session.getAttribute("empid");
 <form action="SerchPatient.jsp" method="post">
 <input type="submit" value="患者検索">
 </form>
-
+<input type="button" value="ログアウト"
+			onclick="location.href='Select.html'" />
 </body>
 </html>

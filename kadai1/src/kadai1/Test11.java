@@ -40,21 +40,10 @@ public class Test11 extends HttpServlet {
 	Dao1 dao1=new Dao1();
 	MedicineArrayBean maBean= dao1.outputMedicine2(medicineid, kosu);
 	HttpSession session=request.getSession();
-//	if(maBean==null){
+
 	session. setAttribute("maBean", maBean);
 	session. setAttribute("medicineid", medicineid);
-
-
-	MedicineArrayBean maBean2=dao1.outputMedicine();
-
-
-	session. setAttribute("maBean2", maBean2);
-	//session.setAttribute("patname", patname);
-
-
-
-
-
+	
 	getServletContext().getRequestDispatcher("/test11.jsp").forward(request, response);
 	dao1.close();
 	//System.out.println(maBean.getArraysize());

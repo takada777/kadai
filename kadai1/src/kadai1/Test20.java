@@ -12,16 +12,16 @@ import javax.servlet.http.HttpSession;
 import dao.Dao1;
 
 /**
- * Servlet implementation class OutputMedicine
+ * Servlet implementation class Test20
  */
-@WebServlet("/OutputMedicine")
-public class OutputMedicine extends HttpServlet {
+@WebServlet("/Test20")
+public class Test20 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OutputMedicine() {
+    public Test20() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,18 +29,32 @@ public class OutputMedicine extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String medicineid=request.getParameter("medicineid");
+		int kosu=Integer.parseInt(request.getParameter("kosu"));
 		Dao1 dao1=new Dao1();
-		MedicineArrayBean maBean=dao1.outputMedicine();
 
-		HttpSession session=request.getSession();
-		session. setAttribute("maBean", maBean);
-		//session.setAttribute("patname", patname);
 
-			getServletContext().getRequestDispatcher("/outputmedicine.jsp").forward(request, response);
-			dao1.close();
+		HttpSession session = request.getSession();
+		MedicineBean mBean=dao1.outputMedicine3(medicineid, kosu);
+
+
+		MedicineArrayBean maBean = (MedicineArrayBean)session.getAttribute("maBean");
+
+
+		if (maBean == null) {
+		    maBean = new MedicineArrayBean();
+		    session.setAttribute("maBean", maBean);
+
+		}
+		maBean.addMediArray(mBean);
+		session.setAttribute("maBean", maBean);
+
+
+
+		getServletContext().getRequestDispatcher("/test20.jsp").forward(request, response);
+
 	}
 
 	/**

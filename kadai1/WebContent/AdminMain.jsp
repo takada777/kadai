@@ -35,6 +35,7 @@
 </form>
 <br>
 <p></p>
-
+<input type="button" value="ログアウト"
+			onclick="location.href='Select.html'" />
 </body>
 </html>

@@ -7,35 +7,32 @@ String medicineid;
 String medicinename;
 String unit;
 int kosu;
-int kosu5;
-int kosu6;
-int kosu7;
-public int getKosu5() {
-	return kosu5;
+int kosu1;
+int kosu2;
+int kosu3;
+
+public int getKosu1() {
+	return kosu1;
 }
-public void setKosu5(int kosu5) {
-	this.kosu5 = kosu5;
+public void setKosu1(int kosu1) {
+	this.kosu1 = kosu1;
 }
-public int getKosu6() {
-	return kosu6;
-}
-public void setKosu6(int kosu6) {
-	this.kosu6 = kosu6;
-}
-public int getKosu7() {
-	return kosu7;
-}
-public void setKosu7(int kosu7) {
-	this.kosu7 = kosu7;
-}
-String kazu;
-String kosu2[];
-public String[] getKosu2() {
+public int getKosu2() {
 	return kosu2;
 }
-public void setKosu2(String[] kosu2) {
+public void setKosu2(int kosu2) {
 	this.kosu2 = kosu2;
 }
+public int getKosu3() {
+	return kosu3;
+}
+public void setKosu3(int kosu3) {
+	this.kosu3 = kosu3;
+}
+String kazu;
+
+
+
 public String getKazu() {
 	return kazu;
 }

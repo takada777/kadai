@@ -1,6 +1,7 @@
 package kadai1;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +13,16 @@ import javax.servlet.http.HttpSession;
 import dao.Dao1;
 
 /**
- * Servlet implementation class test12
+ * Servlet implementation class Test21
  */
-@WebServlet("/test12")
-public class test12 extends HttpServlet {
+@WebServlet("/Test21")
+public class Test21 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public test12() {
+    public Test21() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,37 +30,49 @@ public class test12 extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int kosu=Integer.parseInt(request.getParameter("kosu")) ;
 		String medicineid=request.getParameter("medicineid");
+		String kosu1 ;
+	//	int kosu2;
+		int kosu3;
+		String kosu4;
 
-		String medicinename=request.getParameter("medicinename");
-		String unit=request.getParameter("unit");
 		Dao1 dao1=new Dao1();
-		//MedicineArrayBean maBean= dao1.outputMedicine2(medicineid, kosu);
-
-		HttpSession session=request.getSession();
-
-//		if(maBean==null){
-	//	session. setAttribute("maBean", maBean);
-		session. setAttribute("medicineid", medicineid);
 
 
-	//	MedicineArrayBean maBean2=dao1.outputMedicine();
+		HttpSession session = request.getSession();
+		//MedicineBean mBean=dao1.outputMedicine3(medicineid, kosu1);
 
 
-		//session. setAttribute("maBean2", maBean2);
-		//session.setAttribute("patname", patname);
+		MedicineArrayBean maBean = (MedicineArrayBean)session.getAttribute("maBean");
+		String kosu[]=request.getParameterValues("kosu");
+		String kosu2[]=request.getParameterValues("kosu2");
+			ArrayList<MedicineBean> mArrayList=new ArrayList<MedicineBean>();
+
+			int i=0;
+		 kosu1=kosu[0];
+		//	kosu2=Integer.parseInt(kosu[1]);
+		//	kosu3=Integer.parseInt(kosu[2]);
+
+			session.setAttribute("kosu1",kosu1);
+			session.setAttribute("kosu",kosu);
+			session.setAttribute("kosu2",kosu2);
+			MedicineBean mBean = (MedicineBean)session.getAttribute("mBean");
+		//	mBean.setL3i
 
 
 
 
+	//	maBean.addMediArray(mBean);
+		session.setAttribute("maBean", maBean);
 
-		getServletContext().getRequestDispatcher("/test11.jsp").forward(request, response);
-		dao1.close();
-		//System.out.println(maBean.getArraysize());
-		}
+
+
+		getServletContext().getRequestDispatcher("/test20.jsp").forward(request, response);
+
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
