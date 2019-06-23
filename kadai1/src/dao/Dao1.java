@@ -602,12 +602,16 @@ public class Dao1 {
 	public MedicineArrayBean outputMedicine2(String medicineid,int kosu){
 		MedicineArrayBean maBean=new MedicineArrayBean();
 		ResultSet rs=null;
+
 		this.open();
 		try {
-			statement =connection.prepareStatement("SELECT * FROM medicine where medicineid=?");
-			statement.setString(1, "%"+medicineid+"%");
+			statement =connection.prepareStatement("SELECT * FROM medicine where medicineid= ?");
+			statement.setString(1, medicineid);
 			rs=statement.executeQuery();
+
 			while(rs.next()){
+
+
 				mBean=new MedicineBean();
 				mBean.setMedicineid(rs.getString(MedicinePara.medicineid));
 
@@ -616,6 +620,7 @@ public class Dao1 {
 				mBean.setUnit(rs.getString(MedicinePara.unit));
 				mBean.setKosu(kosu);
 				maBean.addMediArray(mBean);
+				//System.out.println(mBean.getKosu());
 
 
 			}

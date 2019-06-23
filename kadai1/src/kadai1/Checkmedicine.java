@@ -40,8 +40,14 @@ public class Checkmedicine extends HttpServlet {
 
 
 		int i=0;
+		int kosu=Integer.parseInt(request.getParameter("kosu"));
 
-		//String medicineid=request.getParameter("medicineid");
+		String kosu5=request.getParameter("kosu");
+		//System.out.println(kosu5);
+		String kosu6=request.getParameter("kosu");
+		//System.out.println(kosu6);
+		String kosu7=request.getParameter("kosu");
+		//System.out.println(kosu7);
 		String medicinename=request.getParameter("medicinename");
 		String unit=request.getParameter("unit");
 
@@ -51,17 +57,22 @@ public class Checkmedicine extends HttpServlet {
 		String kazu[] = request.getParameterValues("kosu");
 
 
-		while(i<maBean.getArraysize()){
+		while(i<3){
 			//System.out.println(kazu[i]);
-			mBean.setKosu2(kazu);
-			maBean.addMediArray(mBean);
-			//
+			mBean.setKazu(kazu[i]);
+
 			i++;
 
 
 
 		}
-		System.out.println(mBean.getKosu2());
+
+		session. setAttribute("maBean", maBean);
+		session. setAttribute("kodu5", kosu5);
+		session. setAttribute("kosu6", kosu6);
+		session. setAttribute("kosu7", kosu7);
+		//maBean.addMediArray(mBean);
+
 		//Dao1 dao1=new Dao1();
 	//	MedicineArrayBean maBean=dao1.outputMedicine2(medicineid, kosu);
 	//	HttpSession session=request.getSession();

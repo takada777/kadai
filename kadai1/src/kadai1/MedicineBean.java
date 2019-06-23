@@ -7,6 +7,27 @@ String medicineid;
 String medicinename;
 String unit;
 int kosu;
+int kosu5;
+int kosu6;
+int kosu7;
+public int getKosu5() {
+	return kosu5;
+}
+public void setKosu5(int kosu5) {
+	this.kosu5 = kosu5;
+}
+public int getKosu6() {
+	return kosu6;
+}
+public void setKosu6(int kosu6) {
+	this.kosu6 = kosu6;
+}
+public int getKosu7() {
+	return kosu7;
+}
+public void setKosu7(int kosu7) {
+	this.kosu7 = kosu7;
+}
 String kazu;
 String kosu2[];
 public String[] getKosu2() {

@@ -10,8 +10,11 @@
 </head>
 <body>
 <%
-//int kosu=Integer.parseInt(request.getParameterValues("kosu"));
-//System.out.println(kosu);
+HttpSession session2 =request.getSession();
+String kosu5=request.getParameter("kosu5");
+String kosu6=request.getParameter("kosu6");
+String kosu7=request.getParameter("kosu7");
+System.out.println(kosu5);
 //int kazu=Integer.parseInt(request.getParameterValues("kosu"));
  %>
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
@@ -31,18 +34,17 @@ for(MedicineBean mBean : ma){
     <td><%= mBean.getMedicineid()%></td>
     <td><%= mBean.getMedicinename() %></td>
     <td><%= mBean.getUnit()%></td>
-    <td><%while(i<maBean.getArraysize()){
-		
-		mBean.setKosu2(kazu);
+    <td>
+		<%mBean.getKazu();
 		//System.out.println(mBean.getKosu2());
-		i++;
+
 
 
 
 	} %></td>
 
 
-    <% } %>
+
 
 
 

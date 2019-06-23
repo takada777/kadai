@@ -7,6 +7,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.Dao1;
 
 /**
  * Servlet implementation class Test11
@@ -29,12 +32,35 @@ public class Test11 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub;
-		String kosu=request.getParameter("kosu");
+	int kosu=Integer.parseInt(request.getParameter("kosu")) ;
 	String medicineid=request.getParameter("medicineid");
+
 	String medicinename=request.getParameter("medicinename");
 	String unit=request.getParameter("unit");
-	System.out.print(kosu);
+	Dao1 dao1=new Dao1();
+	MedicineArrayBean maBean= dao1.outputMedicine2(medicineid, kosu);
+	HttpSession session=request.getSession();
+//	if(maBean==null){
+	session. setAttribute("maBean", maBean);
+	session. setAttribute("medicineid", medicineid);
+
+
+	MedicineArrayBean maBean2=dao1.outputMedicine();
+
+
+	session. setAttribute("maBean2", maBean2);
+	//session.setAttribute("patname", patname);
+
+
+
+
+
+	getServletContext().getRequestDispatcher("/test11.jsp").forward(request, response);
+	dao1.close();
+	//System.out.println(maBean.getArraysize());
 	}
+
+
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
