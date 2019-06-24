@@ -11,7 +11,7 @@
 <body>
 
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
- <form action="Test21" method="post">
+ <form action="test20" method="post">
 <table border="1">
 <tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th>個数</th><th></th></tr>
 <%String patid=request.getParameter("patid");

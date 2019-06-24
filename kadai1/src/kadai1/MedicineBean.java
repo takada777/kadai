@@ -6,6 +6,13 @@ public class MedicineBean implements Serializable{
 String medicineid;
 String medicinename;
 String unit;
+String qu;
+public String getQu() {
+	return qu;
+}
+public void setQu(String qu) {
+	this.qu = qu;
+}
 int kosu;
 int kosu1;
 int kosu2;
