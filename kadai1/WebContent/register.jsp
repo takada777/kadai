@@ -25,5 +25,7 @@
 <input type="radio" name="yakuwari" value="3"> 医師</p>
 <input type="submit" value="登録する">
 </form>
+<input type="button" value="戻る"
+			onclick="location.href='AdminMain.jsp'" />
 </body>
 </html>

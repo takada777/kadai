@@ -26,5 +26,7 @@
 <input type="submit" value="登録する">
 </fieldset>
 </form>
+<input type="button" value="戻る"
+			onclick="location.href='UketsukeMain.jsp'" />
 </body>
 </html>

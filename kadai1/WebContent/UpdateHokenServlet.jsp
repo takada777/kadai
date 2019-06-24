@@ -29,5 +29,8 @@ String patid = request.getParameter("patid");
 <input type="hidden" name="hokenexp" value="<%=hokenexp%>">
 <input type="hidden" name="patid" value="<%=patid%>">
 </form>
+<form action="PatientOutput" method="post">
+<input type="submit" value="戻る" name="action">
+</form>
 </body>
 </html>

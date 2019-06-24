@@ -15,5 +15,7 @@
 <input type="text" name="patname"></p>
 <input type="submit" value="検索する">
 </form>
+<input type="button" value="戻る"
+			onclick="location.href='AdminMain.jsp'" />
 </body>
 </html>

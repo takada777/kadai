@@ -12,16 +12,16 @@ import javax.servlet.http.HttpSession;
 import dao.Dao1;
 
 /**
- * Servlet implementation class OutputMedicine
+ * Servlet implementation class Kakute
  */
-@WebServlet("/OutputMedicine")
-public class OutputMedicine extends HttpServlet {
+@WebServlet("/Kakute")
+public class Kakute extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public OutputMedicine() {
+    public Kakute() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,17 +33,20 @@ public class OutputMedicine extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String patid=request.getParameter("patid");
-		String patlname=request.getParameter("patlname");
 		String patfname=request.getParameter("patfname");
-		Dao1 dao1=new Dao1();
-		MedicineArrayBean maBean=dao1.outputMedicine();
-
+		String patlname=request.getParameter("patlname");
 		HttpSession session=request.getSession();
-		session. setAttribute("maBean", maBean);
-		//session.setAttribute("patname", patname);
+		MedicineBean mBean=(MedicineBean)session.getAttribute("mBean");
+		String medicinename=mBean.getMedicinename();
+		String unit=mBean.getUnit();
+		String medicineid=(String)session.getAttribute("medicineid");
+		String kosu="1";
+		Dao1 dao1=new Dao1();
+		dao1.SyochiRegister(patid, patlname, patfname, medicinename, unit, kosu);
+		getServletContext().getRequestDispatcher("/kakutei.jsp").forward(request, response);
+		dao1.close();
 
-			getServletContext().getRequestDispatcher("/outputmedicine.jsp").forward(request, response);
-			dao1.close();
+
 	}
 
 	/**

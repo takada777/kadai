@@ -20,7 +20,14 @@ String hokenexp=(String)session.getAttribute("hokenexp");
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>確認画面</title>
 </head>
+
 <body>
+<%if(patid=="" || patfname=="" || patlname=="" || hokenmei==""||hokenexp=="" ){ %>
+<p>入力されていない箇所があります</p>
+<form action="registerpatient.jsp" method="post">
+<input type="submit" value="戻る" name="action">
+</form>
+<% }else{ %>
 <p>この内容で登録しますか？</p>
 <p>患者ID</p>
 <%=patid %>
@@ -32,6 +39,7 @@ String hokenexp=(String)session.getAttribute("hokenexp");
 <%=hokenmei %>
 <p>有効期限</p>
 <%=hokenexp %>
+
 <form action="patcomp.jsp" method="post">
 <input type="submit" value="登録する" name="action">
 
@@ -39,6 +47,6 @@ String hokenexp=(String)session.getAttribute("hokenexp");
 <form action="registerpatient.jsp" method="post">
 <input type="submit" value="戻る" name="action">
 </form>
-
+<% }%>
 </body>
 </html>

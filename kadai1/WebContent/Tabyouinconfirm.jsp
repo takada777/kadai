@@ -34,7 +34,14 @@ String kyukyu=(String)session.getAttribute("kyukyu");
 <p>資本金</p>
 <%=tabyouinshihonkin %>
 <p>救急</p>
-<%=kyukyu %>
+<% if (kyukyu.equals("1")){
+	%>
+	<p>救急</p>
+	<%
+	}else if (kyukyu.equals("2")){
+		%>
+		<p>救急ではない</p>
+		 <%}%>
 <form action="tabyouincomp.jsp" method="post">
 <input type="submit" value="登録する" name="action">
 

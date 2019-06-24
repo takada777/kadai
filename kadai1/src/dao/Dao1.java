@@ -665,4 +665,76 @@ public class Dao1 {
 		}
 		return mBean;
 	}
+
+	public void SyochiRegister(String patid,String patlname,String patfname,String medicinename,String unit,String kosu){
+		//String beforepass;
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("insert into syochi (patid,patlname,patfname,medicinename,unit,kosu) values(?,?,?,?,?,?);");
+			statement.setString(1, patid);
+			statement.setString(2, patlname);
+			statement.setString(3, patfname);
+			statement.setString(4, medicinename);
+			statement.setString(5, unit);
+			statement.setString(6, kosu);
+			int num=statement.executeUpdate();
+		System.out.println(num);
+			rs=statement.executeQuery();
+			System.out.println(patid);
+					while(rs.next()){
+						//beforepass=emppasswd;
+						//eBean=new EmpBean();
+						//eBean.setEmppasswd(beforepass);
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+	}
+	public boolean SerchTabyouin3(String tabyouinid){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM tabyouin WHERE tabyouinid = ? ");
+			statement.setString(1, tabyouinid);
+
+
+			rs=statement.executeQuery();
+
+					if(rs.next()){
+						return true;
+
+
+					}
+					return false;
+
+
+
+
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return false;
 }
+}
+

@@ -25,7 +25,10 @@ String emprole=(String)session.getAttribute("emprole");
 if(dao.SerchEmp3(empid)){
 %>
 <p>入力されたIDは使用されています</p>
-<% }else { %>
+<input type="button" value="戻る"
+			onclick="location.href='register.jsp'" />
+<%
+}else { %>
 <p>完了しました</p>
 <%
 
@@ -33,13 +36,14 @@ if(dao.SerchEmp3(empid)){
 			dao.close();
 
 			%>
-			<% } %>
+
 		<form action="register.jsp" method="post">
 <input type="submit" value="続けて登録" name="action">
 </form>
 <br>
 		<form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューへ" name="action">
+	<% } %>
 </form>
 </body>
 </html>

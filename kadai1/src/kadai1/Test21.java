@@ -34,6 +34,9 @@ public class Test21 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String medicineid=request.getParameter("medicineid");
+		String patid=request.getParameter("patid");
+		String patfname=request.getParameter("patfname");
+		String patlname=request.getParameter("patfname");
 		String kosu1 ;
 	//	int kosu2;
 		int kosu3;

@@ -13,5 +13,7 @@
 <input type="submit" value="検索">
 
 </form>
+<input type="button" value="戻る"
+			onclick="location.href='AdminMain.jsp'" />
 </body>
 </html>

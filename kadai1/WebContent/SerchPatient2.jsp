@@ -14,6 +14,8 @@
 <p>患者名の一部を入力してください<br>
 <input type="text" name="patname"></p>
 <input type="submit" value="検索する">
+<input type="button" value="戻る"
+			onclick="location.href='IshiMain.jsp'" />
 </form>
 </body>
 </html>

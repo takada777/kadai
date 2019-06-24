@@ -19,9 +19,16 @@ String emprole=(String)session.getAttribute("emprole");
 
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>確認画面</title>
 </head>
 <body>
+<%if(empid=="" || empfname=="" || emplname=="" || emppasswd=="" ){ %>
+<p>入力されていない箇所があります</p>
+<form action="register.jsp" method="post">
+<input type="submit" value="戻る" name="action">
+</form>
+<% }else{ %>
 <p>この内容で登録しますか？</p>
 <p>従業員ID</p>
 <%=empid %>
@@ -45,6 +52,7 @@ String emprole=(String)session.getAttribute("emprole");
 
 
 
+
 <form action="empcomp.jsp" method="post">
 <input type="submit" value="登録する" name="action">
 
@@ -52,6 +60,7 @@ String emprole=(String)session.getAttribute("emprole");
 <form action="register.jsp" method="post">
 <input type="submit" value="戻る" name="action">
 </form>
+<%} %>
 
 
 

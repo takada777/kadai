@@ -21,6 +21,10 @@ if(!newemppasswd.equals(newemppasswd2)){%>
 <form action="ChangeEmpPass3.jsp" method="post">
 <input type="submit" value="戻る">
 </form>
+<%}else if(newemppasswd==""||newemppasswd2==""){ %>
+<p>バスワードを入力してください</p>
+<input type="button" value="戻る"
+			onclick="location.href='ChangeEmpPass3.jsp'" />
 <%}else{ %>
 <p>パスワードを変更しますか？</p>
 <form action="ChangeEmpPass3.jsp" method="post">

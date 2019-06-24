@@ -35,10 +35,15 @@ public class RegisterServlet extends HttpServlet {
 			String emplname=request.getParameter("emplname");
 			String emppasswd=request.getParameter("emppasswd");
 			String emprole=request.getParameter("yakuwari");
+			//System.out.println(empid);
+			//System.out.println(empfname);
+			//System.out.println(emplname);
+			//System.out.println(emppasswd);
 			//String action=request.getParameter("action");
 			//int emprole=Integer.parseInt(request.getParameter("emprole"));
 			ToSHA2 sha2=new ToSHA2();
 			sha2.getDigest(emppasswd);
+
 
 
 

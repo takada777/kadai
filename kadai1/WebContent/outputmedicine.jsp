@@ -14,7 +14,9 @@
  <form action="Test21" method="post">
 <table border="1">
 <tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th>個数</th><th></th></tr>
-<%
+<%String patid=request.getParameter("patid");
+String patlname=request.getParameter("patlname");
+String patfname=request.getParameter("patfname");
 ArrayList<MedicineBean> ma=maBean.getMediArray();
 
 for(MedicineBean mBean : ma){
@@ -58,6 +60,9 @@ for(MedicineBean mBean : ma){
 		<input type="submit" value="投与">
 <% for(MedicineBean mBean : ma){%>
 	<input type="hidden" name="medicineid" value="<%=mBean.getMedicineid()%>">
+	<input type="hidden" name="patid" value="<%=patid%>">
+	<input type="hidden" name="patlname" value="<%=patlname%>">
+	<input type="hidden" name="patfname" value="<%=patfname%>">
 	<input type="hidden" name="medicinename" value="<%=mBean.getMedicinename()%>">
 	<input type="hidden" name="unit" value="<%=mBean.getUnit()%>">
 
@@ -70,6 +75,7 @@ session. setAttribute("mBean", mBean);
 }%>
 
     	 </form>
+
 
 
 <form action="IshiMain.jsp" method="post">

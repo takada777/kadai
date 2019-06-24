@@ -102,5 +102,7 @@ for(MedicineBean mBean : ma){
 </table>
 	<input type="submit" value="投与">
 </form>
+<input type="button" value="戻る"
+			onclick="location.href='outputmedicine.jsp'" />
 </body>
 </html>

@@ -23,10 +23,13 @@
 <p>資本金<br>
 <input type="text" name="tabyouinshihonkin"></p>
 <p>救急対応<br>
-<input type="text" name="kyukyu"><br>
-(*救急なら1,そうでないなら0)</p>
+<input type="radio" name="kyukyu" value="1"checked> 救急
+<input type="radio" name="kyukyu" value="2" >救急ではない
+<br>
 <input type="submit" value="登録する">
 </fieldset>
 </form>
+<input type="button" value="戻る"
+			onclick="location.href='AdminMain.jsp'" />
 </body>
 </html>

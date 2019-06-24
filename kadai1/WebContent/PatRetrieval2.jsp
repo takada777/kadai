@@ -29,6 +29,9 @@ for(PatBean pBean : pa){
     <td><%= pBean.getHokenexp() %></td>
     <td><form action="OutputMedicine" method="post"><input type="submit" value="投薬">
     	<input type="hidden" name="hokenmei" value="<%=pBean.getHokenmei()%>">
+    	<input type="hidden" name="patid" value="<%=pBean.getHokenmei()%>">
+    	<input type="hidden" name="patlname" value="<%=pBean.getPatlname()%>">
+    	<input type="hidden" name="patfname" value="<%=pBean.getPatfname()%>">
     	</form>
     	</td>
 
@@ -41,6 +44,7 @@ for(PatBean pBean : pa){
   }
 %>
 </table>
-
+<input type="button" value="戻る"
+			onclick="location.href='SerchPatient.jsp'" />
 </body>
 </html>

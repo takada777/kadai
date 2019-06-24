@@ -14,7 +14,14 @@
 String originempfname = request.getParameter("originempfname");
 String originemplname = request.getParameter("originemplname");
 String empid = request.getParameter("empid");
+
 %>
+<%if(newempfname=="" || newemplname==""){ %>
+<p>入力されていない箇所があります</p>
+<form action="Updateconfirm.jsp" method="post">
+<input type="submit" value="戻る" name="action">
+</form>
+<%}else{ %>
  <TABLE >
 <TR>
 <TD ALIGN="LEFT">変更前
@@ -59,6 +66,7 @@ String empid = request.getParameter("empid");
 <input type="hidden" name="newemplname" value="<%= newemplname%>">
 <input type="hidden" name="newempfname" value="<%= newempfname%>">
 <input type="hidden" name="empid" value="<%= empid%>">
+<% } %>
 </form>
 </body>
 </html>

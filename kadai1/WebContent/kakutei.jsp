@@ -4,12 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>エラー</title>
+<title>完了</title>
 </head>
 <body>
-<h3>エラー</h3>
-<p>入力されたIDに該当するユーザが見つかりません</p>
-<input type="button" value="戻る"
-			onclick="location.href='SerchPatient.jsp'" />
+<p>登録完了しました</p>
+<input type="button" value="メニューへ戻る"
+			onclick="location.href='IshiMain.jsp'" />
 </body>
 </html>

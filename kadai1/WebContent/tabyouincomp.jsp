@@ -16,19 +16,32 @@ String tabyouinaddress=(String)session.getAttribute("tabyouinaddress");
 String tabyouintel=(String)session.getAttribute("tabyouintel");
 String tabyouinshihonkin=(String)session.getAttribute("tabyouinshihonkin");
 String kyukyu=(String)session.getAttribute("kyukyu");
+System.out.println(kyukyu);
 
 
 
 
+
+ Dao1 dao1=new Dao1();
+if(dao1.SerchTabyouin3(tabyouinid)){
 %>
+<p>入力されたIDは使用されています</p>
+<input type="button" value="戻る"
+			onclick="location.href='TabyouinRegister.jsp'" />
+<% }else if(tabyouinid==""||tabyouinmei==""||tabyouinaddress==""||tabyouintel==""||tabyouinshihonkin==""||kyukyu==""){ %>
+<p>入力されていない箇所があります</p>
+<input type="button" value="戻る"
+			onclick="location.href='TabyouinRegister.jsp'" />
+<% }else { %>
 <p>完了しました</p>
+
 <form action="TabyouinRegister.jsp" method="post">
 <input type="submit" value="続けて登録">
 </form>
 <form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューへ">
 </form>
-<%
+ <%
 
 	Dao1 dao=new Dao1();
 
@@ -36,5 +49,10 @@ String kyukyu=(String)session.getAttribute("kyukyu");
 			dao.close();
 
 			%>
+
+
+			<input type="button" value="戻る"
+			onclick="location.href='TabyouinRegister.jsp'" />
+			<% } %>
 </body>
 </html>
