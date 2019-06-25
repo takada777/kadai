@@ -17,7 +17,7 @@ String patid = request.getParameter("patid");
 %>
 <%if(newhokenmei=="" || newhokenexp==""){ %>
 <p>入力されていない箇所があります</p>
-<form action="UpdateHokenServlet.jsp" method="post">
+<form action="dispat.jsp" method="post">
 <input type="submit" value="戻る" name="action">
 </form>
 <%}else{ %>
@@ -55,7 +55,7 @@ String patid = request.getParameter("patid");
 <TD ALIGN="CENTER">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
 <TD ALIGN="RIGHT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=newhokenexp %>
 </TABLE>
-<form action="UpdateHokenServlet.jsp" method="post">
+<form action="dispat.jsp" method="post">
 <input type="submit" value="戻る">
 </form>
 <form action="UpdateHokenServlet" method="post">

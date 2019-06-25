@@ -18,7 +18,7 @@ String empid = request.getParameter("empid");
 %>
 <%if(newempfname=="" || newemplname==""){ %>
 <p>入力されていない箇所があります</p>
-<form action="Updateconfirm.jsp" method="post">
+<form action="SerchEmp.jsp" method="post">
 <input type="submit" value="戻る" name="action">
 </form>
 <%}else{ %>
@@ -56,7 +56,7 @@ String empid = request.getParameter("empid");
 <TD ALIGN="CENTER">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;→
 <TD ALIGN="RIGHT">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%=newempfname %>
 </TABLE>
-<form action="Updateconfirm.jsp" method="post">
+<form action="SerchEmp.jsp" method="post">
 <input type="submit" value="戻る">
 </form>
 <form action="UpdateServlet" method="post">

@@ -39,6 +39,7 @@ public class TabyouinQueryServlet extends HttpServlet {
 		HttpSession session=request.getSession();
 		session. setAttribute("TABean", TABean);
 		session.setAttribute("tabyouinaddress", tabyouinaddress);
+		System.out.println(tabyouinaddress);
 		getServletContext().getRequestDispatcher("/TabyouinRetrieval.jsp").forward(request, response);
 
 		dao1.close();
