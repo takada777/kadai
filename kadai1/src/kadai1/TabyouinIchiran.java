@@ -12,16 +12,16 @@ import javax.servlet.http.HttpSession;
 import dao.Dao1;
 
 /**
- * Servlet implementation class AdominLoginServlet
+ * Servlet implementation class TabyouinIchiran
  */
-@WebServlet("/AdominLoginServlet")
-public class AdominLoginServlet extends HttpServlet {
+@WebServlet("/TabyouinIchiran")
+public class TabyouinIchiran extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdominLoginServlet() {
+    public TabyouinIchiran() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,32 +32,14 @@ public class AdominLoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String empid=request.getParameter("empid");
-		String emppasswd=request.getParameter("emppasswd");
-		ToSHA2 sha2=new ToSHA2();
-		emppasswd= sha2.getDigest(emppasswd);
-		Dao1 dao=new Dao1();
-		if (dao.Adminlogin(empid, emppasswd)) {
+	Dao1 dao1=new Dao1();
+	TabyouinArrayBean taBean= dao1.serchtabyouin2();
+	HttpSession session=request.getSession();
+	session. setAttribute("taBean", taBean);
+	getServletContext().getRequestDispatcher("/tabyouinichiran.jsp").forward(request, response);
 
-
-			HttpSession session=request.getSession();
-		session.setAttribute("empid", empid);
-
-		session.setAttribute("emppasswd", emppasswd);
-		EmpBean eBean=dao.Adminlogin2(empid, emppasswd);
-
-		session.setAttribute("eBean2", eBean);
-
-
-		getServletContext().getRequestDispatcher("/AdminMain.jsp").forward(request, response);
-		dao.close();}
-		else{
-			getServletContext().getRequestDispatcher("/AdminFailed.jsp").forward(request, response);
-			dao.close();
-		}
-
+	dao1.close();
 	}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

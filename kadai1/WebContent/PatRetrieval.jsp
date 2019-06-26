@@ -36,6 +36,8 @@ for(PatBean pBean : pa){
   }
 %>
 </table>
-
+<form action="UketsukeMain.jsp" method="post">
+<input type="submit" value="メニューに戻る">
+</form>
 </body>
 </html>

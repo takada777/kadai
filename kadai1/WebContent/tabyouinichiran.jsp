@@ -14,11 +14,11 @@ HttpSession httpSession=request.getSession();
 //String tabyouinaddress=(String)session.getAttribute("tabyouinaddress");
 %>
 <body>
-<jsp:useBean id="TABean" class="kadai1.TabyouinArrayBean" scope="session"/>
+<jsp:useBean id="taBean" class="kadai1.TabyouinArrayBean" scope="session"/>
 <table border="1">
 <tr><th>病院ID</th><th>病院名</th><th>住所</th><th>電話番号</th><th>資本金</th><th>救急</th></tr>
 <%
-ArrayList<TabyouinBean> TA=TABean.getTabyouinArray();
+ArrayList<TabyouinBean> TA=taBean.getTabyouinArray();
 for(TabyouinBean TBean : TA){
 	%>
  <tr>
@@ -36,9 +36,7 @@ for(TabyouinBean TBean : TA){
   }
 %>
 </table>
-<form action="SerchTabyouin.jsp" method="post">
-<input type="submit" value="続けて検索">
-</form>
+
 <form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューへ">
 </form>

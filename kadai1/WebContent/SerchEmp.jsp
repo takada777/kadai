@@ -7,6 +7,9 @@
 <title>従業員変更検索画面</title>
 </head>
 <body>
+<jsp:useBean id="eBean2" class="kadai1.EmpBean" scope="session"/>
+<%  eBean2.getEmpfname();
+if(eBean2.getEmpfname()!=null){%>
 <form action="SerchEmpServlet" method="post">
 <p>従業員検索<br>
 <input type="text" name="empid"></p>
@@ -15,5 +18,10 @@
 </form>
 <input type="button" value="戻る"
 			onclick="location.href='AdminMain.jsp'" />
+			<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

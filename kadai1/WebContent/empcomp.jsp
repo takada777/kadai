@@ -7,7 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>a</title>
 </head>
+
 <body>
+<jsp:useBean id="eBean2" class="kadai1.EmpBean" scope="session"/>
+<%  eBean2.getEmpfname();
+if(eBean2.getEmpfname()!=null){%>
 <%
 HttpSession httpSession=request.getSession();
 String empid=(String)session.getAttribute("empid");
@@ -44,6 +48,11 @@ if(dao.SerchEmp3(empid)){
 		<form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューへ" name="action">
 	<% } %>
+	<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </form>
 </body>
 </html>

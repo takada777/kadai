@@ -12,6 +12,7 @@ String empid=(String)session.getAttribute("empid");
 <title>受付ページ</title>
 </head>
 <body>
+<h5>受付ページ</h5>
 <br>
 <form action="ChangeEmpPass" method="post">
 <input type="submit"  value="パスワード変更">

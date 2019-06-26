@@ -7,6 +7,9 @@
 <title>従業員登録</title>
 </head>
 <body>
+<jsp:useBean id="eBean2" class="kadai1.EmpBean" scope="session"/>
+<%  eBean2.getEmpfname();
+if(eBean2.getEmpfname()!=null){%>
 <form action="RegisterServlet" method="get">
 <font size="5">
 従業員登録
@@ -27,5 +30,10 @@
 </form>
 <input type="button" value="戻る"
 			onclick="location.href='AdminMain.jsp'" />
+			<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

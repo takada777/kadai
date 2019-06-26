@@ -23,6 +23,9 @@ String emprole=(String)session.getAttribute("emprole");
 <title>確認画面</title>
 </head>
 <body>
+<jsp:useBean id="eBean2" class="kadai1.EmpBean" scope="session"/>
+<%  eBean2.getEmpfname();
+if(eBean2.getEmpfname()!=null){%>
 <%if(empid=="" || empfname=="" || emplname=="" || emppasswd=="" ){ %>
 <p>入力されていない箇所があります</p>
 <form action="register.jsp" method="post">
@@ -61,6 +64,11 @@ String emprole=(String)session.getAttribute("emprole");
 <input type="submit" value="戻る" name="action">
 </form>
 <%} %>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 
 
 

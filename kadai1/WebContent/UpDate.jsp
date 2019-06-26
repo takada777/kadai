@@ -8,7 +8,9 @@
 <title>従業員</title>
 </head>
 <body>
+
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+
 <form action="Updateconfirm.jsp" method="post">
 
 <table border="1">
@@ -44,5 +46,6 @@
 <form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューに戻る">
 </form>
+
 </body>
 </html>

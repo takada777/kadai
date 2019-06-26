@@ -67,6 +67,9 @@ public class Dao1 {
 			rs=statement.executeQuery();
 
 					if(rs.next()){
+					//	EmpBean eBean=new EmpBean();
+						//eBean.setEmpfname(rs.getString(employeeParameter.empfname));
+
 						return true;
 					}else {
 						return false;
@@ -270,7 +273,7 @@ public class Dao1 {
 				TBean=new TabyouinBean();
 				TBean.setTabyouinid(rs.getString(tabyouinPara.tabyouinid));
 				TBean.setTabyouinmei(rs.getString(tabyouinPara.tabyouinmei));
-				TBean.setTabyouinaddress(tabyouinPara.tabyouinaddress);
+				TBean.setTabyouinaddress(rs.getString(tabyouinPara.tabyouinaddress));
 				TBean.setTabyouintel(rs.getString(tabyouinPara.tabyouintel));
 				TBean.setTabyouinshihonkin(rs.getInt(tabyouinPara.tabyouinshihonkin));
 				TBean.setKyukyu(rs.getInt(tabyouinPara.kyukyu));
@@ -426,6 +429,7 @@ public class Dao1 {
 					if(rs.next()){
 						eBean=new EmpBean();
 						eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+						eBean.setEmpfname(rs.getString(employeeParameter.empfname));
 
 
 					}else {
@@ -736,5 +740,68 @@ public class Dao1 {
 		}
 		return false;
 }
+	public TabyouinArrayBean serchtabyouin2(){
+		TabyouinArrayBean TABean=new TabyouinArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM tabyouin ");
+			//statement.setString(1, "%"+tabyouinaddress+"%");
+			rs=statement.executeQuery();
+			while(rs.next()){
+				TBean=new TabyouinBean();
+				TBean.setTabyouinid(rs.getString(tabyouinPara.tabyouinid));
+				TBean.setTabyouinmei(rs.getString(tabyouinPara.tabyouinmei));
+				TBean.setTabyouinaddress(rs.getString(tabyouinPara.tabyouinaddress));
+				TBean.setTabyouintel(rs.getString(tabyouinPara.tabyouintel));
+				TBean.setTabyouinshihonkin(rs.getInt(tabyouinPara.tabyouinshihonkin));
+				TBean.setKyukyu(rs.getInt(tabyouinPara.kyukyu));
+				TABean.addTabyouinArray(TBean);
+
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return TABean;
+
+
+	}
+	public  EmpBean Adminlogin2(String empid,String emppasswd){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM employee WHERE empid = ? AND emppasswd = ? ");
+			statement.setString(1, empid);
+			statement.setString(2, emppasswd);
+
+			rs=statement.executeQuery();
+			//eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+					if(rs.next()){
+						eBean=new EmpBean();
+						eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+						eBean.setEmpfname(rs.getString(employeeParameter.empfname));
+
+
+					}else {
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return eBean;
+	}
 }
 
