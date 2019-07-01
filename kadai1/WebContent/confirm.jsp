@@ -23,9 +23,9 @@ String emprole=(String)session.getAttribute("emprole");
 <title>確認画面</title>
 </head>
 <body>
-<jsp:useBean id="eBean2" class="kadai1.EmpBean" scope="session"/>
-<%  eBean2.getEmpfname();
-if(eBean2.getEmpfname()!=null){%>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <%if(empid=="" || empfname=="" || emplname=="" || emppasswd=="" ){ %>
 <p>入力されていない箇所があります</p>
 <form action="register.jsp" method="post">

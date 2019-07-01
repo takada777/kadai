@@ -9,9 +9,9 @@
 </head>
 
 <body>
-<jsp:useBean id="eBean2" class="kadai1.EmpBean" scope="session"/>
-<%  eBean2.getEmpfname();
-if(eBean2.getEmpfname()!=null){%>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <%
 HttpSession httpSession=request.getSession();
 String empid=(String)session.getAttribute("empid");

@@ -8,6 +8,9 @@
 </head>
 <body>
 <form action="ChangeName.jsp" method="post">
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <% String emplname = request.getParameter("emplname");
  String empfname = request.getParameter("empfname");
  String empid = request.getParameter("empid");%>
@@ -26,6 +29,11 @@
 </form>
 <form action="UpDate.jsp" method="post">
 <input type="submit" value="戻る">
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </form>
 </body>
 </html>

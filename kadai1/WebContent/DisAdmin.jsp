@@ -21,6 +21,7 @@ HttpSession httpSession=request.getSession();
 <%
 ArrayList<EmpBean> EA=EABean.getEmpArray();
 for(EmpBean eBean : EA){
+
 	%>
 
  <tr>

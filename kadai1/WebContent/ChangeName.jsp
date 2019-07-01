@@ -8,7 +8,9 @@
 <title>変更画面</title>
 </head>
 <body>
-
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <% String newemplname = request.getParameter("newemplname");
  String newempfname = request.getParameter("newempfname");
 String originempfname = request.getParameter("originempfname");
@@ -68,5 +70,10 @@ String empid = request.getParameter("empid");
 <input type="hidden" name="empid" value="<%= empid%>">
 <% } %>
 </form>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

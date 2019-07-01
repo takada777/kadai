@@ -7,9 +7,9 @@
 <title>従業員登録</title>
 </head>
 <body>
-<jsp:useBean id="eBean2" class="kadai1.EmpBean" scope="session"/>
-<%  eBean2.getEmpfname();
-if(eBean2.getEmpfname()!=null){%>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <form action="RegisterServlet" method="get">
 <font size="5">
 従業員登録

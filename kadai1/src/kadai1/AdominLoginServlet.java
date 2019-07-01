@@ -46,7 +46,7 @@ public class AdominLoginServlet extends HttpServlet {
 		session.setAttribute("emppasswd", emppasswd);
 		EmpBean eBean=dao.Adminlogin2(empid, emppasswd);
 
-		session.setAttribute("eBean2", eBean);
+		session.setAttribute("eBean", eBean);
 
 
 		getServletContext().getRequestDispatcher("/AdminMain.jsp").forward(request, response);
