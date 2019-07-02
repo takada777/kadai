@@ -8,6 +8,9 @@
 <title>完了</title>
 </head>
 <body>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <%
 HttpSession httpSession=request.getSession();
 String tabyouinid=(String)session.getAttribute("tabyouinid");
@@ -53,6 +56,11 @@ if(dao1.SerchTabyouin3(tabyouinid)){
 
 			<input type="button" value="戻る"
 			onclick="location.href='TabyouinRegister.jsp'" />
+			<% } %>
+			<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
 			<% } %>
 </body>
 </html>

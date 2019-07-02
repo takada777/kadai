@@ -11,6 +11,8 @@
 </head>
 <body>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <% String newemppasswd = request.getParameter("newemppasswd");
  String emppasswd = request.getParameter("emppasswd");
  String newemppasswd2 = request.getParameter("newemppasswd2");
@@ -45,5 +47,10 @@ if(!newemppasswd.equals(newemppasswd2)){%>
 <input type="submit" value="変更する">
 </form>
 <% } %>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

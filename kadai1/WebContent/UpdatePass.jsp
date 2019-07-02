@@ -10,6 +10,8 @@
 </head>
 <body>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <form action="ChangeAdminPass.jsp" method="post">
 <%
  %>
@@ -32,5 +34,10 @@
 <form action="DisAdmin.jsp" method="post">
 <input type="submit" value="戻る">
 </form>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

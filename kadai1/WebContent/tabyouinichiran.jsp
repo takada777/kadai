@@ -10,10 +10,13 @@
 </head>
 <%
 HttpSession httpSession=request.getSession();
-
+String empfname777=(String)httpSession.getAttribute("empfname777");
 //String tabyouinaddress=(String)session.getAttribute("tabyouinaddress");
 %>
 <body>
+<%
+if(empfname777!=null){
+	%>
 <jsp:useBean id="taBean" class="kadai1.TabyouinArrayBean" scope="session"/>
 <table border="1">
 <tr><th>病院ID</th><th>病院名</th><th>住所</th><th>電話番号</th><th>資本金</th><th>救急</th></tr>
@@ -40,5 +43,10 @@ for(TabyouinBean TBean : TA){
 <form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューへ">
 </form>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

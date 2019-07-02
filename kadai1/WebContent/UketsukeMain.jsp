@@ -6,12 +6,15 @@
 <%
 HttpSession httpSession=request.getSession();
 String empid=(String)session.getAttribute("empid");
+String empfname111=(String)session.getAttribute("empfname111");
 
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>受付ページ</title>
 </head>
 <body>
+<%
+if(empfname111!=null){%>
 <h5>受付ページ</h5>
 <br>
 <form action="ChangeEmpPass" method="post">
@@ -34,5 +37,10 @@ String empid=(String)session.getAttribute("empid");
 </form>
 <input type="button" value="ログアウト"
 			onclick="location.href='Select.html'" />
+			<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

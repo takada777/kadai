@@ -4,6 +4,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <%
 HttpSession httpSession=request.getSession();
 String tabyouinid=(String)session.getAttribute("tabyouinid");
@@ -49,5 +52,10 @@ String kyukyu=(String)session.getAttribute("kyukyu");
 <form action="TabyouinRegister.jsp" method="post">
 <input type="submit" value="戻る" name="action">
 </form>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

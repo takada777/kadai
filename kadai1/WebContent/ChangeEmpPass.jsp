@@ -10,7 +10,12 @@
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <form action="CheckEmpPass.jsp" method="post">
 <% String empid = request.getParameter("empid");
+HttpSession session2=request.getSession();
+String empfname111=(String)session.getAttribute("empfname111");
+
 %>
+<%
+if(empfname111!=null){%>
 <p>変更後のパスワードを入力してください</p>
 パスワード
 <br>
@@ -28,5 +33,10 @@
 </form>
 <input type="button" value="戻る"
 			onclick="location.href='UketsukeMain.jsp'" />
+			<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

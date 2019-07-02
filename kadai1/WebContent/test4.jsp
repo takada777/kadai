@@ -4,6 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <title>変更完了</title>
 </head>
 <body>
@@ -14,5 +17,10 @@
 <form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューに戻る">
 </form>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

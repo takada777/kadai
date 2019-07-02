@@ -7,6 +7,9 @@
 <title>他病院登録</title>
 </head>
 <body>
+<jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
+<%  eBean.getEmpfname();
+if(eBean.getEmpfname()!=null){%>
 <form action="TabyouinRegisterServlet" method="get">
 <fieldset>
 <font size="5">
@@ -31,5 +34,10 @@
 </form>
 <input type="button" value="戻る"
 			onclick="location.href='AdminMain.jsp'" />
+			<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>

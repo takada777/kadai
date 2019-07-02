@@ -53,6 +53,7 @@ public class EmpLoginServlet extends HttpServlet {
 
 		session.setAttribute("emppasswd", emppasswd);
 		eBean2=dao.Emplogin2(empid, emppasswd);
+		session.setAttribute("empfname111", eBean2.empfname);
 		int emprole= eBean2.getEmprole();
 
 		if (emprole==2) {

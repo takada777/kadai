@@ -15,12 +15,15 @@ HttpSession httpSession=request.getSession();
 %>
 <body>
 <jsp:useBean id="EABean" class="kadai1.EmpArrayBean" scope="session"/>
+<%EABean.getArraysize();
+if(EABean.getArraysize()!=0){%>
 
 <table border="1">
 <tr><th>ユーザID</th><th>苗字</th><th>名前</th><th>パスワード</th><th></th></tr>
 <%
 ArrayList<EmpBean> EA=EABean.getEmpArray();
 for(EmpBean eBean : EA){
+
 
 	%>
 
@@ -54,5 +57,10 @@ for(EmpBean eBean : EA){
 <form action="AdminMain.jsp" method="post">
 <input type="submit" value="メニューに戻る">
 </form>
+<%} else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<% } %>
 </body>
 </html>
