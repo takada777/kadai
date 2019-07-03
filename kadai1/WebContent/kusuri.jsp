@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:useBean id="maBean" class="kadai1.MedicineArrayBean" scope="session"/>
- <form action="Test21" method="post">
+
 <table border="1">
 <tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th></th></tr>
 <%String patid=request.getParameter("patid");
@@ -29,7 +29,13 @@ for(MedicineBean mBean : ma){
     <td><%= mBean.getMedicineid()%></td>
     <td><%= mBean.getMedicinename() %></td>
     <td><%= mBean.getUnit()%></td>
-<td><input type="submit" value="削除"></td>
+     <form action="deleteconf.jsp" method="post">
+<td><input type="submit" value="削除">
+<input type="hidden" name="medicineid" value="<%=mBean.getMedicineid()%>">
+	<input type="hidden" name="medicinename" value="<%=mBean.getMedicinename()%>">
+	<input type="hidden" name="unit" value="<%=mBean.getUnit()%>">
+	</form>
+	</td>
   </tr>
 
 
@@ -45,14 +51,10 @@ for(MedicineBean mBean : ma){
 
 
 
+ <form action="addmedicine.jsp" method="post">
 		<input type="submit" value="薬追加">
+		</form>
 <% for(MedicineBean mBean : ma){%>
-	<input type="hidden" name="medicineid" value="<%=mBean.getMedicineid()%>">
-	<input type="hidden" name="patid" value="<%=patid%>">
-	<input type="hidden" name="patlname" value="<%=patlname%>">
-	<input type="hidden" name="patfname" value="<%=patfname%>">
-	<input type="hidden" name="medicinename" value="<%=mBean.getMedicinename()%>">
-	<input type="hidden" name="unit" value="<%=mBean.getUnit()%>">
 
 
 <%
@@ -62,7 +64,7 @@ session. setAttribute("mBean", mBean);
 
 }%>
 
-    	 </form>
+
 
 
 

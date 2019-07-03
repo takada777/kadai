@@ -804,5 +804,38 @@ public class Dao1 {
 		}
 		return eBean;
 	}
+	public void medicineRegister(String medicineid,String medicinename,String unit){
+		//String beforepass;
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("insert into medicine (medicineid,medicinename,unit) values(?,?,?);");
+			statement.setString(1, medicineid);
+			statement.setString(2, medicinename);
+			statement.setString(3, unit);
+
+			int num=statement.executeUpdate();
+		System.out.println(num);
+			rs=statement.executeQuery();
+			System.out.println(medicineid);
+					while(rs.next()){
+						//beforepass=emppasswd;
+						//eBean=new EmpBean();
+						//eBean.setEmppasswd(beforepass);
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+	}
 }
 
