@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<% String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){ %>
 <form action="PatQueryServlet" method="get">
 <font size="5">
 患者検索
@@ -16,6 +18,11 @@
 <input type="submit" value="検索する">
 </form>
 <input type="button" value="戻る"
-			onclick="location.href='AdminMain.jsp'" />
+			onclick="location.href='UketsukeMain.jsp'" />
+			<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

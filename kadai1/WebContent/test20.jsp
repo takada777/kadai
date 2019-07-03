@@ -14,6 +14,8 @@
 
 <%
 HttpSession httpSession=request.getSession();
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){
 String medicineid=(String)session.getAttribute("medicineid");
 String kosu1=(String)session.getAttribute(("kosu1"));
 String kosu[]=(String[])session.getAttribute("kosu");
@@ -79,5 +81,10 @@ for(MedicineBean mBean : ma2){
 
 <input type="button" value="戻る"
 			onclick="location.href='IshiMain.jsp'" />
+			<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

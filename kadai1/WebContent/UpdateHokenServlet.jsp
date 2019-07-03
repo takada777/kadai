@@ -12,6 +12,8 @@
 <% String hokenmei = request.getParameter("hokenmei");
 String hokenexp = request.getParameter("hokenexp");
 String patid = request.getParameter("patid");
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){
 %>
 <p>変更後の保険証記号番号または有効期限を入力してください</p>
 保険証記号番号
@@ -32,5 +34,10 @@ String patid = request.getParameter("patid");
 <form action="PatientOutput" method="post">
 <input type="submit" value="戻る" name="action">
 </form>
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

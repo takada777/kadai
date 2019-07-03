@@ -11,9 +11,9 @@
 <% String newemppasswd = request.getParameter("newemppasswd");
  String emppasswd = request.getParameter("emppasswd");
  String newemppasswd2 = request.getParameter("newemppasswd2");
- //System.out.println(eBean.getBeforepass());
-
-
+ HttpSession session2=request.getSession();
+ String empfname111=(String)session.getAttribute("empfname111");
+ if(empfname111!=null){
 if(!newemppasswd.equals(newemppasswd2)){%>
 
 <p>パスワードが一致していません</p>
@@ -34,6 +34,11 @@ if(!newemppasswd.equals(newemppasswd2)){%>
 <input type="hidden" name="empid" value="<%= eBean.getEmpid()%>">
 <input type="submit" value="変更する">
 <% } %>
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </form>
 </body>
 </html>

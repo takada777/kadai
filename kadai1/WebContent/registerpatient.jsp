@@ -7,6 +7,9 @@
 <title>患者登録</title>
 </head>
 <body>
+<%  HttpSession session2=request.getSession();
+ String empfname111=(String)session.getAttribute("empfname111");
+ if(empfname111!=null){%>
 <form action="RegisterPatientServlet" method="get">
 <fieldset>
 <font size="5">
@@ -28,5 +31,10 @@
 </form>
 <input type="button" value="戻る"
 			onclick="location.href='UketsukeMain.jsp'" />
+			<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

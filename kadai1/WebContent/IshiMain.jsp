@@ -7,8 +7,10 @@
 <%
 HttpSession httpSession=request.getSession();
 String empid=(String)session.getAttribute("empid");
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){ %>
 
-%>
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>医師ページ</title>
 </head>
@@ -20,9 +22,18 @@ String empid=(String)session.getAttribute("empid");
 <input type="hidden" name="empid" value="<%=empid%>">
 </form>
 <br>
-
+<form action="Kusuri" method="post">
+<input type="submit"  value="薬一覧">
+<input type="hidden" name="empid" value="<%=empid%>">
+</form>
 <br>
 <input type="button" value="ログアウト"
 			onclick="location.href='Select.html'" />
+
+			<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

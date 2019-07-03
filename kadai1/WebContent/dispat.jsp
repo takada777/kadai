@@ -11,6 +11,9 @@
 <body>
 <%
 HttpSession httpSession=request.getSession();
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){
+
 
 
 %>
@@ -60,5 +63,10 @@ for(PatBean pBean : pa){
 <form action="UketsukeMain.jsp" method="post">
 <input type="submit" value="メニューに戻る">
 </form>
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

@@ -7,6 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+HttpSession httpSession=request.getSession();
+String empid=(String)session.getAttribute("empid");
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){ %>
+
+
 <form action="PatQueryServlet2" method="get">
 <font size="5">
 患者検索
@@ -17,5 +24,10 @@
 <input type="button" value="戻る"
 			onclick="location.href='IshiMain.jsp'" />
 </form>
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

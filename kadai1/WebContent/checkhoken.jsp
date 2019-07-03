@@ -13,6 +13,8 @@
 String hokenmei = request.getParameter("hokenmei");
 String hokenexp = request.getParameter("hokenexp");
 String patid = request.getParameter("patid");
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){
 //String empid = request.getParameter("empid");
 %>
 <%if(newhokenmei=="" && newhokenexp==""){ %>
@@ -124,6 +126,10 @@ String patid = request.getParameter("patid");
 
 </form>
 <% } %>
-
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

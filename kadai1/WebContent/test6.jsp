@@ -8,11 +8,18 @@
 <title>変更完了</title>
 </head>
 <body>
+<% String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){ %>
 <p>変更されました</p>
 
 
 <form action="UketsukeMain.jsp" method="post">
 <input type="submit" value="メニューに戻る">
 </form>
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

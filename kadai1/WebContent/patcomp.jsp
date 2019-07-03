@@ -16,7 +16,8 @@ String patfname=(String)session.getAttribute("patfname");
 String patlname=(String)session.getAttribute("patlname");
 String hokenmei=(String)session.getAttribute("hokenmei");
 String hokenexp=(String)session.getAttribute("hokenexp");
-
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){
 
 
 
@@ -31,5 +32,10 @@ String hokenexp=(String)session.getAttribute("hokenexp");
 	dao.PatRegister(patid, patfname, patlname, hokenmei, hokenexp);
 	dao.close();
 %>
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>
