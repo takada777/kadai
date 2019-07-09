@@ -43,11 +43,11 @@ public class Kakute extends HttpServlet {
 	//	String medicinename=mBean.getMedicinename();
 		//String unit=mBean.getUnit();
 		//String medicineid=(String)session.getAttribute("medicineid");
-		String kosu[]=request.getParameterValues("kosu");
+		//String kosu[]=request.getParameterValues("kosu");
 		ArrayList<MedicineBean> ma=maBean.getMediArray();
 		int i=0;
 		for(MedicineBean mBean : ma){
-	System.out.println(kosu[i]);
+	System.out.println(patid);
 		i++;
 		Dao1 dao1=new Dao1();
 		dao1.close();

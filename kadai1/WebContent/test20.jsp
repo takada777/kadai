@@ -59,7 +59,7 @@ for(MedicineBean mBean : ma){
   <% }%>
 </table>
 <input type="submit" value="確定">
-<input type="hidden" name="patid" value="<%=patid%>">
+<input type="hidden" name="patid" value="<%=%>">
 	<input type="hidden" name="patlname" value="<%=patlname%>">
 	<input type="hidden" name="patfname" value="<%=patfname%>">
 	</form>
