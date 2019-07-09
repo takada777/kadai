@@ -59,9 +59,12 @@ for(MedicineBean mBean : ma){
   <% }%>
 </table>
 <input type="submit" value="確定">
-<input type="hidden" name="patid" value="<%=%>">
+<input type="hidden" name="patid" value="<%=patid%>">
 	<input type="hidden" name="patlname" value="<%=patlname%>">
 	<input type="hidden" name="patfname" value="<%=patfname%>">
+	<input type="hidden" name="patlname" value="<%=patlname%>">
+	<input type="hidden" name="patlname" value="<%=patlname%>">
+	<input type="hidden" name="patlname" value="<%=patlname%>">
 	</form>
 <% for(i=0;i<kosu.length; i++){%>
 <input type="hidden" name="kosu" value=<%=kosu[i] %>>
