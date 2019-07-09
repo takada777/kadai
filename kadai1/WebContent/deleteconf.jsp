@@ -38,6 +38,14 @@ if(empfname111!=null){
 
 
 
+<form action="medidelicomp.jsp" method="post">
+<input type="submit" value="削除する" name="action">
+<input type="hidden" name="medicineid" value="<%=medicineid%>">
+<input type="hidden" name="medicinename" value="<%=medicinename%>">
+<input type="hidden" name="unit" value="<%=unit%>">
+</form><br>
+			<input type="button" value="戻る"
+			onclick="location.href='IshiMain.jsp'" />
 
 
 

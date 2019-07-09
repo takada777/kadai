@@ -28,7 +28,7 @@ if(empfname111!=null){%>
 
 <%if(medicineid=="" || medicinename=="" || unit==""){ %>
 <p>入力されていない箇所があります</p>
-<form action="register.jsp" method="post">
+<form action="addmedicine.jsp" method="post">
 <input type="submit" value="戻る" name="action">
 </form>
 <% }else{ %>

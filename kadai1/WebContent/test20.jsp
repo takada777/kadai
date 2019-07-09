@@ -63,8 +63,9 @@ for(MedicineBean mBean : ma){
 	<input type="hidden" name="patlname" value="<%=patlname%>">
 	<input type="hidden" name="patfname" value="<%=patfname%>">
 	</form>
-
-
+<% for(i=0;i<kosu.length; i++){%>
+<input type="hidden" name="kosu" value=<%=kosu[i] %>>
+<% } %>
 	 <input type="hidden" name="patfname" value="<%=patfname%>">
 <%
 
@@ -74,7 +75,7 @@ ArrayList<MedicineBean> ma2=maBean.getMediArray();
 for(MedicineBean mBean : ma2){
 
 	%>
-<input type="hidden" name="kosu" value=kosu>
+
 
 
 <%} %>

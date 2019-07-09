@@ -837,5 +837,72 @@ public class Dao1 {
 			e.printStackTrace();
 		}
 	}
+	public boolean SerchMedicine(String medicineid){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM medicine WHERE medicineid = ? ");
+			statement.setString(1, medicineid);
+
+
+			rs=statement.executeQuery();
+
+					if(rs.next()){
+						return true;
+
+
+					}
+					return false;
+
+
+
+
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return false;
+}
+	public void deleteMedicine(String medicineid){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("delete FROM medicine WHERE medicineid = ? ");
+			statement.setString(1, medicineid);
+
+			int num=statement.executeUpdate();
+			rs=statement.executeQuery();
+			//eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+					if(rs.next()){
+
+
+
+
+					}else {
+
+
+						}
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+	}
 }
 

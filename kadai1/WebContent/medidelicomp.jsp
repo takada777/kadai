@@ -12,28 +12,22 @@
 <%String medicineid=request.getParameter("medicineid");
 String medicinename=request.getParameter("medicinename");
 String unit=request.getParameter("unit");
-Dao1 dao=new Dao1();
-if(dao.SerchMedicine(medicineid)){
-%>
-<p>入力されたIDは使用されています</p>
-<input type="button" value="戻る"
-			onclick="location.href='addmedicine.jsp'" />
-<%
-}else { %>
-<p>登録完了しました</p>
-<%
 
+%>
+
+
+<p>削除しました</p>
+<%
+System.out.println(medicineid);
 Dao1 dao2=new Dao1();
-dao2.medicineRegister(medicineid, medicinename, unit);
+dao2.deleteMedicine(medicineid);
 dao2.close();
 
 %>
 
-<input type="button" value="続けて登録"
-			onclick="location.href='addmedicine.jsp'" />
-			<br>
+
 			<input type="button" value="メニューへ"
 			onclick="location.href='IshiMain.jsp'" />
-			<% } %>
+
 </body>
 </html>
