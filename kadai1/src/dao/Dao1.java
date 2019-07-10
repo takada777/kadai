@@ -672,10 +672,12 @@ public class Dao1 {
 
 	public void SyochiRegister(String patid,String patlname,String patfname,String medicinename,String unit,String kosu){
 		//String beforepass;
+
 		ResultSet rs=null;
 		this.open();
+
 		try {
-			statement =connection.prepareStatement("insert into syochi (patid,patlname,patfname,medicinename,unit,kosu) values(?,?,?,?,?,?);");
+			statement =connection.prepareStatement("insert into syochi (patid,patlname,patfname,medicinename,unit,kosu) values(?,?,?,?,?,?)");
 			statement.setString(1, patid);
 			statement.setString(2, patlname);
 			statement.setString(3, patfname);
@@ -683,9 +685,9 @@ public class Dao1 {
 			statement.setString(5, unit);
 			statement.setString(6, kosu);
 			int num=statement.executeUpdate();
-		System.out.println(num);
+
 			rs=statement.executeQuery();
-			System.out.println(patid);
+
 					while(rs.next()){
 						//beforepass=emppasswd;
 						//eBean=new EmpBean();

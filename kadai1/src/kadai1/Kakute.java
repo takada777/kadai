@@ -37,22 +37,33 @@ public class Kakute extends HttpServlet {
 		String patid=request.getParameter("patid");
 		String patfname=request.getParameter("patfname");
 		String patlname=request.getParameter("patlname");
+		Dao1 dao1=new Dao1();
 		HttpSession session=request.getSession();
 		MedicineArrayBean maBean=(MedicineArrayBean)session.getAttribute("maBean");
-		//MedicineBean mBean=(MedicineBean)session.getAttribute("mBean");
+	//	MedicineBean mBean=(MedicineBean)session.getAttribute("mBean");
+
 	//	String medicinename=mBean.getMedicinename();
 		//String unit=mBean.getUnit();
 		//String medicineid=(String)session.getAttribute("medicineid");
-		//String kosu[]=request.getParameterValues("kosu");
+		String kosu[]=request.getParameterValues("kosu");
 		ArrayList<MedicineBean> ma=maBean.getMediArray();
+
 		int i=0;
-		for(MedicineBean mBean : ma){
-	System.out.println(patid);
+		for(MedicineBean mBean2 : ma){
+	//	String medicinename=mBean2.getMedicinename();
+	//	String unit=mBean2.getUnit();
+
+
+
+
+		System.out.println(mBean2.getMedicinename());
+
+		dao1.SyochiRegister(patid, patlname, patfname, mBean2.getMedicinename(), mBean2.getUnit(), kosu[i]);
 		i++;
-		Dao1 dao1=new Dao1();
-		dao1.close();
+
+
 		}
-	//	dao1.SyochiRegister(patid, patlname, patfname, medicinename, unit, kosu);
+		dao1.close();
 		getServletContext().getRequestDispatcher("/kakutei.jsp").forward(request, response);
 
 

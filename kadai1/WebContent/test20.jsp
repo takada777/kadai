@@ -22,7 +22,8 @@ String kosu[]=(String[])session.getAttribute("kosu");
 //String kosu2[]=(String[])session.getAttribute("kosu2");
 String patid=request.getParameter("patid");
 String patfname=request.getParameter("patfname");
-String patlname=request.getParameter("patfname");
+String patlname=request.getParameter("patlname");
+System.out.println(patid);
 //String kosu2[]=(String[])session.getAttribute("kosu2");
 
 //String kosu2=request.getParameter("kosu2");
@@ -60,12 +61,8 @@ for(MedicineBean mBean : ma){
 </table>
 <input type="submit" value="確定">
 <input type="hidden" name="patid" value="<%=patid%>">
-	<input type="hidden" name="patlname" value="<%=patlname%>">
-	<input type="hidden" name="patfname" value="<%=patfname%>">
-	<input type="hidden" name="patlname" value="<%=patlname%>">
-	<input type="hidden" name="patlname" value="<%=patlname%>">
-	<input type="hidden" name="patlname" value="<%=patlname%>">
-	</form>
+
+
 <% for(i=0;i<kosu.length; i++){%>
 <input type="hidden" name="kosu" value=<%=kosu[i] %>>
 <% } %>
@@ -78,11 +75,16 @@ ArrayList<MedicineBean> ma2=maBean.getMediArray();
 for(MedicineBean mBean : ma2){
 
 	%>
+<input type="hidden" name="patlname" value="<%=patlname%>">
+	<input type="hidden" name="patfname" value="<%=patfname%>">
+	<input type="hidden" name="medicineid" value="<%=mBean.getMedicineid()%>">
+	<input type="hidden" name="medicinename" value="<%=mBean.getMedicinename()%>">
+	<input type="hidden" name="unit" value="<%=mBean.getUnit()%>">
 
 
-
-<%} %>
-
+<%}
+%>
+</form>
 <input type="button" value="戻る"
 			onclick="location.href='IshiMain.jsp'" />
 			<% }else{ %>
