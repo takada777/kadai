@@ -7,6 +7,7 @@ String medicineid;
 String medicinename;
 String unit;
 String qu;
+
 public String getQu() {
 	return qu;
 }

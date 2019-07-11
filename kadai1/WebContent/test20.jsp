@@ -43,7 +43,7 @@ int i=0;
 ArrayList<MedicineBean> ma=maBean.getMediArray();
 
 for(MedicineBean mBean : ma){
-
+	if(!kosu[i].equals("0")){
 	%>
 
  <tr>
@@ -53,11 +53,14 @@ for(MedicineBean mBean : ma){
 
 	<td>
          <%=kosu[i]%></td>
-<%i++;
+<% }
+i++;
 %>
 
   </tr>
+
   <% }%>
+
 </table>
 <input type="submit" value="確定">
 <input type="hidden" name="patid" value="<%=patid%>">

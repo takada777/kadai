@@ -1,7 +1,6 @@
 package kadai1;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,16 +12,16 @@ import javax.servlet.http.HttpSession;
 import dao.Dao1;
 
 /**
- * Servlet implementation class Kakute
+ * Servlet implementation class Rireki
  */
-@WebServlet("/Kakute")
-public class Kakute extends HttpServlet {
+@WebServlet("/Rireki")
+public class Rireki extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Kakute() {
+    public Rireki() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,44 +32,12 @@ public class Kakute extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		int i=0;
-		String patid=request.getParameter("patid");
-		String patfname=request.getParameter("patfname");
-		String patlname=request.getParameter("patlname");
 		Dao1 dao1=new Dao1();
+		SyochiArrayBean saBean= dao1.outputsyochi();
 		HttpSession session=request.getSession();
-		MedicineArrayBean maBean=(MedicineArrayBean)session.getAttribute("maBean");
-	//	MedicineBean mBean=(MedicineBean)session.getAttribute("mBean");
-
-	//	String medicinename=mBean.getMedicinename();
-		//String unit=mBean.getUnit();
-		//String medicineid=(String)session.getAttribute("medicineid");
-		String kosu[]=request.getParameterValues("kosu");
-
-		ArrayList<MedicineBean> ma=maBean.getMediArray();
-
-
-		for(MedicineBean mBean2 : ma){
-	//	String medicinename=mBean2.getMedicinename();
-	//	String unit=mBean2.getUnit();
-
-
-			if(!kosu[i].equals("0")){
-
-
-
-		dao1.SyochiRegister(patid, patlname, patfname, mBean2.getMedicinename(), mBean2.getUnit(), kosu[i]);
-
-			}
-			i++;
-
-		}
+		session.setAttribute("saBean", saBean);
+		getServletContext().getRequestDispatcher("/outputsyochi.jsp").forward(request, response);
 		dao1.close();
-
-		getServletContext().getRequestDispatcher("/kakutei.jsp").forward(request, response);
-
-
-
 	}
 
 	/**

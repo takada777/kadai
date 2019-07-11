@@ -27,6 +27,11 @@ if(empfname111!=null){ %>
 <input type="hidden" name="empid" value="<%=empid%>">
 </form>
 <br>
+<form action="Rireki" method="post">
+<input type="submit"  value="投与履歴">
+<input type="hidden" name="empid" value="<%=empid%>">
+</form>
+<br>
 <input type="button" value="ログアウト"
 			onclick="location.href='Select.html'" />
 

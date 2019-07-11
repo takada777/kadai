@@ -13,11 +13,14 @@ import kadai1.MedicineBean;
 import kadai1.MedicinePara;
 import kadai1.PatArrayBean;
 import kadai1.PatBean;
+import kadai1.SyochiArrayBean;
+import kadai1.SyochiBean;
 import kadai1.TabyouinArrayBean;
 import kadai1.TabyouinBean;
 import kadai1.ToSHA2;
 import kadai1.employeeParameter;
 import kadai1.patientpara;
+import kadai1.syochipara;
 import kadai1.tabyouinPara;
 
 
@@ -29,6 +32,8 @@ public class Dao1 {
 	TabyouinBean TBean=null;
 	PatBean pBean=null;
 	MedicineBean mBean=null;
+	SyochiBean sBean=null;
+
 
 
 
@@ -904,6 +909,35 @@ public class Dao1 {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
+
+	}
+	public SyochiArrayBean outputsyochi(){
+		SyochiArrayBean saBean=new SyochiArrayBean();
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("SELECT * FROM syochi ");
+
+			rs=statement.executeQuery();
+			while(rs.next()){
+				sBean=new SyochiBean();
+				sBean.setPatid(rs.getString(syochipara.patid));
+				sBean.setPatlname(rs.getString(syochipara.patlname));
+				sBean.setPatfname(rs.getString(syochipara.patfname));
+				sBean.setMedicinename(rs.getString(syochipara.medicinename));
+				sBean.setUnit(rs.getString(syochipara.unit));
+				sBean.setKosu(rs.getString(syochipara.kosu));
+				saBean.addsyochiArray(sBean);
+
+			}
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+		return saBean;
+
 
 	}
 }
