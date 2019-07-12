@@ -24,7 +24,7 @@ if(empfname!=null){%>
 <input type="submit" value="登録する">
 </form>
 <input type="button" value="戻る"
-			onclick="location.href='IshiMain.jsp'" />
+			onclick="location.href='kusuri.jsp'" />
 			<%} else{ %>
 			<p>ログインしてください</p>
 			<input type="button" value="ログイン画面へ"

@@ -45,7 +45,7 @@ if(empfname111!=null){
 <input type="hidden" name="unit" value="<%=unit%>">
 </form><br>
 			<input type="button" value="戻る"
-			onclick="location.href='IshiMain.jsp'" />
+			onclick="location.href='kusuri.jsp'" />
 
 
 

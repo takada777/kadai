@@ -14,9 +14,9 @@
  <form action="Test21" method="post">
 <table border="1">
 <tr><th>薬剤ID</th><th>薬剤名</th><th>単位</th><th>個数</th><th></th></tr>
-<%String patid=request.getParameter("patid");
-String patlname=request.getParameter("patlname");
-String patfname=request.getParameter("patfname");
+<%String patid=(String)session.getAttribute("patid");
+String patlname=(String)session.getAttribute("patlname");
+String patfname=(String)session.getAttribute("patfname");
 String empfname111=(String)session.getAttribute("empfname111");
 if(empfname111!=null){
 ArrayList<MedicineBean> ma=maBean.getMediArray();

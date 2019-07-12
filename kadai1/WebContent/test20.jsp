@@ -20,9 +20,9 @@ String medicineid=(String)session.getAttribute("medicineid");
 String kosu1=(String)session.getAttribute(("kosu1"));
 String kosu[]=(String[])session.getAttribute("kosu");
 //String kosu2[]=(String[])session.getAttribute("kosu2");
-String patid=request.getParameter("patid");
-String patfname=request.getParameter("patfname");
-String patlname=request.getParameter("patlname");
+String patid=(String)session.getAttribute("patid");
+String patlname=(String)session.getAttribute("patlname");
+String patfname=(String)session.getAttribute("patfname");
 System.out.println(patid);
 //String kosu2[]=(String[])session.getAttribute("kosu2");
 
@@ -89,7 +89,7 @@ for(MedicineBean mBean : ma2){
 %>
 </form>
 <input type="button" value="戻る"
-			onclick="location.href='IshiMain.jsp'" />
+			onclick="location.href='outputmedicine.jsp'" />
 			<% }else{ %>
 			<p>ログインしてください</p>
 			<input type="button" value="ログイン画面へ"
