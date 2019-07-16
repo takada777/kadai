@@ -80,8 +80,8 @@ session. setAttribute("mBean", mBean);
 
 
 
-<form action="IshiMain.jsp" method="post">
-<input type="submit" value="メニューに戻る">
+<form action="PatRetrieval2.jsp" method="post">
+<input type="submit" value="戻る">
 </form>
 <% }else{ %>
 			<p>ログインしてください</p>
