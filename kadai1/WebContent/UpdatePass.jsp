@@ -10,8 +10,8 @@
 </head>
 <body>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
-<%  eBean.getEmpfname();
-if(eBean.getEmpfname()!=null){%>
+<%  String empfname777= (String)session.getAttribute("empfname777");
+if(empfname777!=null){%>
 <form action="ChangeAdminPass.jsp" method="post">
 <%
  %>

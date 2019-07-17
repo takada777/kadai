@@ -6,9 +6,11 @@
 <head>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <%  eBean.getEmpfname();
-if(eBean.getEmpfname()!=null){%>
+String empfname777= (String)session.getAttribute("empfname777");
+if(eBean.getEmpfname()!=null||empfname777!=null){%>
 <%
 HttpSession httpSession=request.getSession();
+
 String tabyouinid=(String)session.getAttribute("tabyouinid");
 String tabyouinmei=(String)session.getAttribute("tabyouinmei");
 String tabyouinaddress=(String)session.getAttribute("tabyouinaddress");

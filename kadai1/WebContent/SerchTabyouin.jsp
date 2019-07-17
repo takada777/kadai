@@ -7,8 +7,8 @@
 <title>病院検索</title>
 </head>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
-<%  eBean.getEmpfname();
-if(eBean.getEmpfname()!=null){%>
+<%  String empfname777= (String)session.getAttribute("empfname777");
+if(empfname777!=null){%>
 <body>
 <form action="TabyouinQueryServlet" method="get">
 <font size="5">
@@ -17,7 +17,12 @@ if(eBean.getEmpfname()!=null){%>
 <p>住所の一部を入力してください<br>
 <input type="text" name="tabyouinaddress"></p>
 <input type="submit" value="検索する">
+
 </form>
+<br>
+<input type="button" value="戻る"
+			onclick="location.href='AdminMain.jsp'" />
+
 <%} else{ %>
 			<p>ログインしてください</p>
 			<input type="button" value="ログイン画面へ"

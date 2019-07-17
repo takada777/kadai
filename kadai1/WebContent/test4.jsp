@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
-<%  eBean.getEmpfname();
-if(eBean.getEmpfname()!=null){%>
+<%  String empfname777= (String)session.getAttribute("empfname777");
+if(empfname777!=null){%>
 <title>変更完了</title>
 </head>
 <body>

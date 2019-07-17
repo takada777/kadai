@@ -10,13 +10,14 @@
 </head>
 <%
 HttpSession httpSession=request.getSession();
+String empfname777= (String)session.getAttribute("empfname777");
 
 
 %>
 <body>
 <jsp:useBean id="EABean" class="kadai1.EmpArrayBean" scope="session"/>
-<%EABean.getArraysize();
-if(EABean.getArraysize()!=0){%>
+<%
+if(empfname777!=null){%>
 
 <table border="1">
 <tr><th>ユーザID</th><th>苗字</th><th>名前</th><th>パスワード</th><th></th></tr>
@@ -55,6 +56,7 @@ for(EmpBean eBean : EA){
 
 </table>
 <form action="AdminMain.jsp" method="post">
+
 <input type="submit" value="メニューに戻る">
 </form>
 <%} else{ %>

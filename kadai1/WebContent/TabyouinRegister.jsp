@@ -9,7 +9,8 @@
 <body>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <%  eBean.getEmpfname();
-if(eBean.getEmpfname()!=null){%>
+String empfname777= (String)session.getAttribute("empfname777");
+if(eBean.getEmpfname()!=null||empfname777!=null){%>
 <form action="TabyouinRegisterServlet" method="get">
 <fieldset>
 <font size="5">

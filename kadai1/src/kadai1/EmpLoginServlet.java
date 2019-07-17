@@ -68,7 +68,7 @@ public class EmpLoginServlet extends HttpServlet {
 			dao.close();
 			}
 		else if(emprole==1){
-
+			session.setAttribute("eBean", eBean2);
 			getServletContext().getRequestDispatcher("/AdminMain.jsp").forward(request, response);
 			dao.close();
 

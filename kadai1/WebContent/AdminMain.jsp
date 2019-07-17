@@ -6,7 +6,7 @@
 <%
 HttpSession httpSession=request.getSession();
 String empid=(String)session.getAttribute("empid");
-
+String empfname777= (String)session.getAttribute("empfname777");
 
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +15,7 @@ String empid=(String)session.getAttribute("empid");
 <body>
 <jsp:useBean id="eBean" class="kadai1.EmpBean" scope="session"/>
 <%  eBean.getEmpfname();
-if(eBean.getEmpfname()!=null){%>
+if(eBean.getEmpfname()!=null||empfname777!=null){%>
 <h5>管理者ページ</h5>
 <br>
 <form action="register.jsp" method="post">
@@ -51,7 +51,7 @@ if(eBean.getEmpfname()!=null){%>
 <br>
 <p></p>
 <input type="button" value="ログアウト"
-			onclick="location.href='Select.html'" />
+			onclick="location.href='remove'" />
 			<% }else{ %>
 			<p>ログインしてください</p>
 			<input type="button" value="ログイン画面へ"
