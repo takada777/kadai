@@ -50,12 +50,13 @@ if(eBean.getEmpfname()!=null||empfname777!=null){%>
 </form>
 <br>
 <p></p>
-<input type="button" value="ログアウト"
-			onclick="location.href='remove'" />
+<form action="remove" method="post">
+<input type="submit" value="ログアウト">
+</form>
 			<% }else{ %>
 			<p>ログインしてください</p>
 			<input type="button" value="ログイン画面へ"
-			onclick="location.href='Select.html'" />
+			onclick="location.href='select.jsp'" />
 			<%} %>
 
 </body>

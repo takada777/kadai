@@ -31,6 +31,9 @@ public class remove extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
+		String empfname777=(String) session.getAttribute("empfname777");
+
+		session.removeAttribute("empfname777");
 		session.invalidate();
 		getServletContext().getRequestDispatcher("/Select.html").forward(request, response);
 	}
