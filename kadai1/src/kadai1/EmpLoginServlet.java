@@ -58,7 +58,7 @@ public class EmpLoginServlet extends HttpServlet {
 
 		if (emprole==2) {
 
-			session.setAttribute("empfname111", eBean2.empfname);
+			session.setAttribute("empfname555", eBean2.empfname);
 		getServletContext().getRequestDispatcher("/UketsukeMain.jsp").forward(request, response);
 		dao.close();
 		}
@@ -68,7 +68,7 @@ public class EmpLoginServlet extends HttpServlet {
 			dao.close();
 			}
 		else if(emprole==1){
-			session.setAttribute("eBean", eBean2);
+			session.setAttribute("empfname777",eBean2.empfname);
 			getServletContext().getRequestDispatcher("/AdminMain.jsp").forward(request, response);
 			dao.close();
 

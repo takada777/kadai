@@ -6,7 +6,7 @@
 <%
 HttpSession httpSession=request.getSession();
 String empid=(String)session.getAttribute("empid");
-String empfname111=(String)session.getAttribute("empfname111");
+String empfname555=(String)session.getAttribute("empfname555");
 
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,7 +14,7 @@ String empfname111=(String)session.getAttribute("empfname111");
 </head>
 <body>
 <%
-if(empfname111!=null){%>
+if(empfname555!=null){%>
 <h5>受付ページ</h5>
 <br>
 <form action="ChangeEmpPass" method="post">
@@ -35,6 +35,9 @@ if(empfname111!=null){%>
 <form action="SerchPatient.jsp" method="post">
 <input type="submit" value="患者検索">
 </form>
+<br>
+
+
 <input type="button" value="ログアウト"
 			onclick="location.href='Select.html'" />
 			<% }else{ %>
