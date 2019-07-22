@@ -9,19 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.Dao1;
-
 /**
- * Servlet implementation class PatQueryServlet2
+ * Servlet implementation class Remove2
  */
-@WebServlet("/PatQueryServlet2")
-public class PatQueryServlet2 extends HttpServlet {
+@WebServlet("/Remove2")
+public class Remove2 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PatQueryServlet2() {
+    public Remove2() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,25 +30,13 @@ public class PatQueryServlet2 extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String patname=request.getParameter("patname");
-
-		Dao1 dao1=new Dao1();
-		PatArrayBean paBean=dao1.serchpat(patname);
-
+		// TODO Auto-generated method stub
 		HttpSession session=request.getSession();
-		session. setAttribute("paBean", paBean);
-		session.setAttribute("patname", patname);
+		String empfname555=(String) session.getAttribute("empfname555");
 
-		if(paBean.getArraysize()==0){
-			getServletContext().getRequestDispatcher("/patfailed2.jsp").forward(request, response);
-
-			dao1.close();
-
-		}else{
-			getServletContext().getRequestDispatcher("/PatRetrieval2.jsp").forward(request, response);
-
-			dao1.close();
-		}
+		session.removeAttribute("empfname555");
+		session.invalidate();
+		getServletContext().getRequestDispatcher("/Select.html").forward(request, response);
 	}
 
 

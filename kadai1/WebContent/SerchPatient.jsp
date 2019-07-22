@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% String empfname111=(String)session.getAttribute("empfname111");
-if(empfname111!=null){ %>
+<% String empfname555=(String)session.getAttribute("empfname555");
+if(empfname555!=null){ %>
 <form action="PatQueryServlet" method="get">
 <font size="5">
 患者検索

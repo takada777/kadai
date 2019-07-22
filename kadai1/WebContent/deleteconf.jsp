@@ -52,6 +52,11 @@ if(empfname111!=null){
 
 
 
-<% } %>
+
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

@@ -12,8 +12,9 @@
  String emppasswd = request.getParameter("emppasswd");
  String newemppasswd2 = request.getParameter("newemppasswd2");
  HttpSession session2=request.getSession();
- String empfname111=(String)session.getAttribute("empfname111");
- if(empfname111!=null){
+// String empfname111=(String)session.getAttribute("empfname111");
+ String empfname555=(String)session.getAttribute("empfname555");
+ if(empfname555!=null){
 if(!newemppasswd.equals(newemppasswd2)){%>
 
 <p>パスワードが一致していません</p>

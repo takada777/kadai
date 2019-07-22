@@ -8,8 +8,8 @@
 <title>変更完了</title>
 </head>
 <body>
-<% String empfname111=(String)session.getAttribute("empfname111");
-if(empfname111!=null){ %>
+<% String empfname555=(String)session.getAttribute("empfname555");
+if(empfname555!=null){ %>
 <p>変更されました</p>
 
 

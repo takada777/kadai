@@ -11,8 +11,8 @@
 <body>
 <%
 HttpSession httpSession=request.getSession();
-String empfname111=(String)session.getAttribute("empfname111");
-if(empfname111!=null){
+String empfname555=(String)session.getAttribute("empfname555");
+if(empfname555!=null){
 
 
 

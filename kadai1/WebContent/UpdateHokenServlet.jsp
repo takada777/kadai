@@ -12,8 +12,8 @@
 <% String hokenmei = request.getParameter("hokenmei");
 String hokenexp = request.getParameter("hokenexp");
 String patid = request.getParameter("patid");
-String empfname111=(String)session.getAttribute("empfname111");
-if(empfname111!=null){
+String empfname555=(String)session.getAttribute("empfname555");
+if(empfname555!=null){
 %>
 <p>変更後の保険証記号番号または有効期限を入力してください</p>
 保険証記号番号

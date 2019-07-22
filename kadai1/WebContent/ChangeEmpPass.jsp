@@ -11,11 +11,11 @@
 <form action="CheckEmpPass.jsp" method="post">
 <% String empid = request.getParameter("empid");
 HttpSession session2=request.getSession();
-String empfname111=(String)session.getAttribute("empfname111");
+String empfname555=(String)session.getAttribute("empfname555");
 
 %>
 <%
-if(empfname111!=null){%>
+if(empfname555!=null){%>
 <p>変更後のパスワードを入力してください</p>
 パスワード
 <br>

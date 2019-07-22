@@ -12,8 +12,8 @@
 HttpSession httpSession=request.getSession();
 
 String patname=(String)session.getAttribute("patname");
- String empfname111=(String)session.getAttribute("empfname111");
-if(empfname111!=null){
+String empfname555=(String)session.getAttribute("empfname555");
+if(empfname555!=null){
 %>
 <body>
 <jsp:useBean id="paBean" class="kadai1.PatArrayBean" scope="session"/>

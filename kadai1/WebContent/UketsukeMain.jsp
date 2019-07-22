@@ -39,7 +39,7 @@ if(empfname555!=null){%>
 
 
 <input type="button" value="ログアウト"
-			onclick="location.href='Select.html'" />
+			onclick="location.href='Remove2'" />
 			<% }else{ %>
 			<p>ログインしてください</p>
 			<input type="button" value="ログイン画面へ"

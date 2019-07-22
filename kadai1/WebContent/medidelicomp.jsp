@@ -12,7 +12,8 @@
 <%String medicineid=request.getParameter("medicineid");
 String medicinename=request.getParameter("medicinename");
 String unit=request.getParameter("unit");
-
+String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){
 %>
 
 
@@ -28,6 +29,10 @@ dao2.close();
 
 			<input type="button" value="メニューへ"
 			onclick="location.href='IshiMain.jsp'" />
-
+<% }else{ %>
+			<p>ログインしてください</p>
+			<input type="button" value="ログイン画面へ"
+			onclick="location.href='Select.html'" />
+			<%} %>
 </body>
 </html>

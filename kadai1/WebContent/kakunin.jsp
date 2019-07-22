@@ -11,8 +11,8 @@ String patfname=(String)session.getAttribute("patfname");
 String patlname=(String)session.getAttribute("patlname");
 String hokenmei=(String)session.getAttribute("hokenmei");
 String hokenexp=(String)session.getAttribute("hokenexp");
-String empfname111=(String)session.getAttribute("empfname111");
-if(empfname111!=null){
+String empfname555=(String)session.getAttribute("empfname555");
+if(empfname555!=null){
 
 
 

@@ -33,7 +33,7 @@ if(empfname111!=null){ %>
 </form>
 <br>
 <input type="button" value="ログアウト"
-			onclick="location.href='Select.html'" />
+			onclick="location.href='Remove3'" />
 
 			<% }else{ %>
 			<p>ログインしてください</p>
