@@ -940,5 +940,35 @@ public class Dao1 {
 
 
 	}
+	public void deleterireki(String patid,String patlname,String patfname,String medicinename,String unit,String kosu){
+
+		ResultSet rs=null;
+		this.open();
+		try {
+			statement =connection.prepareStatement("delete FROM syochi WHERE patid = ? AND patlname = ? AND patfname = ? AND medicinename = ? AND unit = ? AND kosu = ? ");
+			statement.setString(1, patid);
+			statement.setString(2, patlname);
+			statement.setString(3, patfname);
+			statement.setString(4, medicinename);
+			statement.setString(5, unit);
+			statement.setString(6, kosu);
+
+			statement.executeUpdate();
+
+			//eBean.setEmprole(rs.getInt(employeeParameter.emprole));
+
+
+
+
+
+
+
+
+		} catch (SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+	}
 }
 

@@ -38,8 +38,9 @@ if(empfname555!=null){%>
 <br>
 
 
-<input type="button" value="ログアウト"
-			onclick="location.href='Remove2'" />
+<form action="Remove2" method="post">
+<input type="submit" value="ログアウト">
+</form>
 			<% }else{ %>
 			<p>ログインしてください</p>
 			<input type="button" value="ログイン画面へ"

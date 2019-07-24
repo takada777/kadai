@@ -32,8 +32,9 @@ if(empfname111!=null){ %>
 <input type="hidden" name="empid" value="<%=empid%>">
 </form>
 <br>
-<input type="button" value="ログアウト"
-			onclick="location.href='Remove3'" />
+<form action="Remove3" method="post">
+<input type="submit" value="ログアウト">
+</form>
 
 			<% }else{ %>
 			<p>ログインしてください</p>

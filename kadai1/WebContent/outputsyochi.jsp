@@ -11,12 +11,12 @@
 <body>
 
 <jsp:useBean id="saBean" class="kadai1.SyochiArrayBean" scope="session"/>
- <form action="Test21" method="post">
+<%String empfname111=(String)session.getAttribute("empfname111");
+if(empfname111!=null){ %>
 <table border="1">
-<tr><th>患者ID</th><th>苗字</th><th>名前</th><th>薬名</th><th>単位</th><th>個数</th></tr>
+<tr><th>患者ID</th><th>苗字</th><th>名前</th><th>薬名</th><th>単位</th><th>個数</th><th></th></tr>
 <%
-String empfname111=(String)session.getAttribute("empfname111");
-if(empfname111!=null){
+
 ArrayList<SyochiBean> sa=saBean.getsyochiArray();
 
 for(SyochiBean sBean : sa){
@@ -31,6 +31,17 @@ for(SyochiBean sBean : sa){
      <td><%= sBean.getMedicinename()%></td>
     <td><%= sBean.getUnit()%></td>
     <td><%= sBean.getKosu()%></td>
+
+    <td><form action="Delirireki" method="post">
+    <input type="submit" value="削除">
+    <input type="hidden" name="patid" value="<%=sBean.getPatid()%>">
+	<input type="hidden" name="patlname" value="<%=sBean.getPatlname()%>">
+	<input type="hidden" name="patfname" value="<%=sBean.getPatfname()%>">
+	<input type="hidden" name="medicinename" value="<%=sBean.getMedicinename()%>">
+	<input type="hidden" name="kosu" value="<%=sBean.getKosu()%>">
+	<input type="hidden" name="unit" value="<%=sBean.getUnit()%>">
+         </form></td>
+
 
 
 
