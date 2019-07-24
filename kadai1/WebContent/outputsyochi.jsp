@@ -14,11 +14,11 @@
 <body>
 
 <jsp:useBean id="saBean" class="kadai1.SyochiArrayBean" scope="session"/>
-<%Date date=new Date();
+<%//Date date=new Date();
 
-DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+//DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 
-String formattedDate=dateFormat.format(date);
+//String formattedDate=dateFormat.format(date);
 String empfname111=(String)session.getAttribute("empfname111");
 if(empfname111!=null){ %>
 <table border="1">
@@ -40,7 +40,7 @@ for(SyochiBean sBean : sa){
      <td><%= sBean.getMedicinename()%></td>
     <td><%= sBean.getUnit()%></td>
     <td><%= sBean.getKosu()%></td>
-<td><%=formattedDate %></td>
+<td><%=sBean.getDate() %></td>
     <td><form action="Delirireki" method="get">
     <input type="submit" value="削除">
      <input type="hidden" name="i" value="<%=i%>">
