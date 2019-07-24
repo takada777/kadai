@@ -24,4 +24,7 @@ public class SyochiArrayBean implements Serializable {
 	   public void setsyochiArray(ArrayList<SyochiBean> syochiArray) {
 			this.syochiArray = syochiArray;
 		}
+	   public void delisyochiArray(String i) {
+			syochiArray.remove(Integer.parseInt(i));
+		}
 }

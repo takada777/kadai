@@ -675,20 +675,21 @@ public class Dao1 {
 		return mBean;
 	}
 
-	public void SyochiRegister(String patid,String patlname,String patfname,String medicinename,String unit,String kosu){
+	public void SyochiRegister(String patid,String patlname,String patfname,String medicinename,String unit,String kosu, String date){
 		//String beforepass;
 
 		ResultSet rs=null;
 		this.open();
 
 		try {
-			statement =connection.prepareStatement("insert into syochi (patid,patlname,patfname,medicinename,unit,kosu) values(?,?,?,?,?,?)");
+			statement =connection.prepareStatement("insert into syochi (patid,patlname,patfname,medicinename,unit,kosu,date) values(?,?,?,?,?,?,?)");
 			statement.setString(1, patid);
 			statement.setString(2, patlname);
 			statement.setString(3, patfname);
 			statement.setString(4, medicinename);
 			statement.setString(5, unit);
 			statement.setString(6, kosu);
+			statement.setString(7, date);
 			int num=statement.executeUpdate();
 
 			rs=statement.executeQuery();
@@ -823,7 +824,7 @@ public class Dao1 {
 
 			int num=statement.executeUpdate();
 		System.out.println(num);
-			rs=statement.executeQuery();
+//			rs=statement.executeQuery();
 			System.out.println(medicineid);
 					while(rs.next()){
 						//beforepass=emppasswd;
@@ -927,6 +928,7 @@ public class Dao1 {
 				sBean.setMedicinename(rs.getString(syochipara.medicinename));
 				sBean.setUnit(rs.getString(syochipara.unit));
 				sBean.setKosu(rs.getString(syochipara.kosu));
+				sBean.setDate(rs.getString(syochipara.date));
 				saBean.addsyochiArray(sBean);
 
 			}

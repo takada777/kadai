@@ -39,14 +39,17 @@ public class Delirireki extends HttpServlet {
 		String medicinename=request.getParameter("medicinename");
 		String unit=request.getParameter("unit");
 		String kosu=request.getParameter("kosu");
-		System.out.println(patid);
+	//	System.out.println(patid);
+		String delete=request.getParameter("i");
 
 		HttpSession session=request.getSession();
-
+		SyochiArrayBean saBean =(SyochiArrayBean)session.getAttribute("saBean");
+		saBean.delisyochiArray(delete);
+	//	System.out.print(saBean.getArraysize());
 		dao1.deleterireki(patid, patlname, patfname, medicinename, unit, kosu);
-
-		getServletContext().getRequestDispatcher("/outputsyochi.jsp").forward(request, response);
 		dao1.close();
+		//System.out.print(saBean.getArraysize());
+		getServletContext().getRequestDispatcher("/outputsyochi.jsp").forward(request, response);
 
 		//response.sendRedirect("outputsyochi.jsp") ;
 	}

@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
      <%@page import="kadai1.*"%>
      <%@ page import="java.util.ArrayList" %>
+       <%@ page import="java.text.DateFormat" %>
+         <%@ page import="java.text.SimpleDateFormat" %>
+           <%@ page import="java.util.Date" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,14 +14,20 @@
 <body>
 
 <jsp:useBean id="saBean" class="kadai1.SyochiArrayBean" scope="session"/>
-<%String empfname111=(String)session.getAttribute("empfname111");
+<%Date date=new Date();
+
+DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+String formattedDate=dateFormat.format(date);
+String empfname111=(String)session.getAttribute("empfname111");
 if(empfname111!=null){ %>
 <table border="1">
-<tr><th>患者ID</th><th>苗字</th><th>名前</th><th>薬名</th><th>単位</th><th>個数</th><th></th></tr>
+<tr><th>患者ID</th><th>苗字</th><th>名前</th><th>薬名</th><th>単位</th><th>個数</th><th>日付</th><th></th></tr>
 <%
 
 ArrayList<SyochiBean> sa=saBean.getsyochiArray();
-
+//System.out.println(saBean.getArraysize());
+int i=0;
 for(SyochiBean sBean : sa){
 
 	%>
@@ -31,9 +40,10 @@ for(SyochiBean sBean : sa){
      <td><%= sBean.getMedicinename()%></td>
     <td><%= sBean.getUnit()%></td>
     <td><%= sBean.getKosu()%></td>
-
-    <td><form action="Delirireki" method="post">
+<td><%=formattedDate %></td>
+    <td><form action="Delirireki" method="get">
     <input type="submit" value="削除">
+     <input type="hidden" name="i" value="<%=i%>">
     <input type="hidden" name="patid" value="<%=sBean.getPatid()%>">
 	<input type="hidden" name="patlname" value="<%=sBean.getPatlname()%>">
 	<input type="hidden" name="patfname" value="<%=sBean.getPatfname()%>">
@@ -52,7 +62,7 @@ for(SyochiBean sBean : sa){
 
 
 <%
-
+i++;
 
 } %>
 

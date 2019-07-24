@@ -10,5 +10,6 @@ public class syochipara {
 		public static final String medicinename="medicinename";
 		public static final String unit="unit";
 		public static final String kosu="kosu";
+		public static final String date="date";
 
 }

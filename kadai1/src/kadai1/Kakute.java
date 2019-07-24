@@ -1,7 +1,10 @@
 package kadai1;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -53,13 +56,19 @@ public class Kakute extends HttpServlet {
 		for(MedicineBean mBean2 : ma){
 	//	String medicinename=mBean2.getMedicinename();
 	//	String unit=mBean2.getUnit();
+			Date date=new Date();
 
+			DateFormat dateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+			String formattedDate=dateFormat.format(date);
+
+			//System.out.println(formattedDate);
 
 			if(!kosu[i].equals("0")){
 
 
 
-		dao1.SyochiRegister(patid, patlname, patfname, mBean2.getMedicinename(), mBean2.getUnit(), kosu[i]);
+		dao1.SyochiRegister(patid, patlname, patfname, mBean2.getMedicinename(), mBean2.getUnit(), kosu[i],formattedDate);
 
 			}
 			i++;
